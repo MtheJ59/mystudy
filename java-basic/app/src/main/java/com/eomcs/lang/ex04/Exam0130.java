@@ -5,7 +5,7 @@ package com.eomcs.lang.ex04;
 //- 문법
 //    변수명 = 변수 또는 리터럴;
 //- 용어 
-//    = : 할당 연산자(assignment operator)
+//    = : 할당 연산자(assignment operator) 어싸인먼트
 //    l-value : = 왼쪽에 있는 변수를 가리킨다. l-value는 리터럴이 될 수 없다.
 //    r-value : = 오른쪽에 있는 변수나 리터럴을 가리킨다.
 //- 의미
