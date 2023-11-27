@@ -1,6 +1,6 @@
 package com.eomcs.lang.ex05;
 
-//# 할당(배정,대입) 연산자  : +=  -=  *=  /=  %=  &=  |=  ^=  <<=  >>=  >>>=
+// # 할당(배정,대입) 연산자 : += -= *= /= %= &= |= ^= <<= >>= >>>=
 //
 public class Exam0710 {
   public static void main(String[] args) {
