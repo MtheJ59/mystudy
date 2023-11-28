@@ -14,8 +14,8 @@ public class Exam0450 {
 
     // 위의 문장은 컴파일하면 아래의 문장으로 변경된다.
     // for (int i = 0; i < names.length; i++) {
-    //   String name = names[i];
-    //   System.out.println(name);
+    // String name = names[i];
+    // System.out.println(name);
     // }
   }
 }
@@ -31,5 +31,4 @@ public class Exam0450 {
 // for (변수 선언 : 배열, Iterable 구현체) { 문장1; 문장2; ...}
 // - 변수의 타입은 배열이나 Iterable 구현체의 항목 타입과 같아야 한다.
 // - 반복문을 돌 때 마다 항목을 값을 꺼내 변수에 담는다.
-
 

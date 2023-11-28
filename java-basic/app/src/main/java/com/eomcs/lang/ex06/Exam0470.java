@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Exam0470 {
   public static void main(String[] args) {
     // 제네릭 적용
-    ArrayList<String> list = new ArrayList<>();
+    ArrayList<String> list = new ArrayList<>(); // <String>을 제네릭 이라고하고 '타입파라미터'라고 한다.
     list.add("홍길동");
     list.add("임꺽정");
     list.add("유관순");
