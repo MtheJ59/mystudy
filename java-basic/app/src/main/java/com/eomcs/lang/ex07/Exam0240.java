@@ -1,6 +1,6 @@
 package com.eomcs.lang.ex07;
 
-//# 메서드 : 개념 및 기본 문법 IV
+// # 메서드 : 개념 및 기본 문법 IV
 //
 public class Exam0240 {
 
