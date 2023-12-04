@@ -19,13 +19,13 @@ public class MainMenu {
     for (String menu : MENUS) {
       System.out.println(menu);
     }
+
   }
 
   static void execute() {
     printMenu();
-
     while (true) {
-      String input = Prompt.Input("메인");
+      String input = Prompt.input("메인");
 
       switch (input) {
         case "1":
@@ -45,6 +45,7 @@ public class MainMenu {
           break;
         default:
           System.out.println("메뉴 번호가 옳지 않습니다.");
+          break;
       }
     }
   }

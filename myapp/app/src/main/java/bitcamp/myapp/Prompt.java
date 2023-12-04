@@ -6,7 +6,7 @@ public class Prompt {
 
   static Scanner keyIn = new Scanner(System.in);
 
-  static String Input(String title) {
+  static String input(String title) {
     System.out.printf("%s> ", title);
     return keyIn.nextLine();
   }
@@ -14,5 +14,4 @@ public class Prompt {
   static void close() {
     keyIn.close();
   }
-
 }

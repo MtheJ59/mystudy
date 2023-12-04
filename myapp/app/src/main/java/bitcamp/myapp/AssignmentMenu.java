@@ -2,7 +2,7 @@ package bitcamp.myapp;
 
 public class AssignmentMenu {
 
-  static void printMenu() {
+  static void printAssignmentMenu() {
     System.out.println("[과제]");
     System.out.println("1. 등록");
     System.out.println("2. 조회");
@@ -12,11 +12,10 @@ public class AssignmentMenu {
   }
 
   static void execute() {
-    printMenu();
+    printAssignmentMenu();
 
     while (true) {
-      String input = Prompt.Input("메인/과제");
-
+      String input = Prompt.input("메인/과제");
       switch (input) {
         case "1":
           System.out.println("등록입니다.");
@@ -33,11 +32,13 @@ public class AssignmentMenu {
         case "0":
           return;
         case "menu":
-          printMenu();
+          printAssignmentMenu();
           break;
         default:
-          System.out.println("메뉴 번호가 옳지 않습니다!");
+          System.out.println("메뉴 번호가 옳지 않습니다.");
+          break;
       }
     }
   }
+
 }
