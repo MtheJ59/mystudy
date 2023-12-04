@@ -5,7 +5,8 @@ package com.eomcs.oop.ex02.step07.util;
 //
 public class Calculator {
 
-  public int result = 0;
+  public int result = 0; // 인스턴스 필드 이다. 변수를 만들라는 지시
+                         // Heap 에 변수를 만들어 저장한다.
 
   public void plus(int value) {
 
