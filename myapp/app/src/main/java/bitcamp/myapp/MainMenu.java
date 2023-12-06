@@ -24,6 +24,7 @@ public class MainMenu {
 
   static void execute() {
     printMenu();
+
     while (true) {
       String input = Prompt.input("메인> ");
 
@@ -36,6 +37,7 @@ public class MainMenu {
           break;
         case "3":
           MemberMenu.execute();
+          break;
         case "4":
           System.out.println("도움말입니다.");
           break;
@@ -47,7 +49,6 @@ public class MainMenu {
           break;
         default:
           System.out.println("메뉴 번호가 옳지 않습니다.");
-          break;
       }
     }
   }
