@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Prompt {
 
   static Scanner keyIn = new Scanner(System.in);
+  // 스태틱 변수인 keyIn에 Heap 영역에 만들어진 Scanner가 생성된다.
 
   static String input(String title, Object... args) {
     System.out.print(String.format(title, args));
