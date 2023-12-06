@@ -5,6 +5,5 @@ public class Member {
   String email;
   String name;
   String password;
-  String join;
-
+  String joinData;
 }

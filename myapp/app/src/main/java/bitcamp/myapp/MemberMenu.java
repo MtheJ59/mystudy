@@ -7,12 +7,12 @@ public class MemberMenu {
 
   static void printMemberMenu() {
     System.out.println("[회원]");
-    System.out.println("등록");
-    System.out.println("조회");
-    System.out.println("변경");
-    System.out.println("삭제");
-    System.out.println("목록");
-    System.out.println("이전");
+    System.out.println("1. 등록");
+    System.out.println("2. 조회");
+    System.out.println("3. 변경");
+    System.out.println("4. 삭제");
+    System.out.println("5. 목록");
+    System.out.println("0. 이전");
   }
 
   static void execute() {
@@ -42,7 +42,7 @@ public class MemberMenu {
           printMemberMenu();
           break;
         default:
-          System.out.println("회원 번호가 옳바르지 않습니다.");
+          System.out.println("회원 번호가 옳지 않습니다.");
       }
     }
   }
@@ -54,29 +54,28 @@ public class MemberMenu {
       int newSize = oldSize + (oldSize >> 1);
 
       Member[] arr = new Member[newSize];
-      for (int i = 0; i < oldSize; i++) {
+      for (int i = 0; i < length; i++) {
         arr[i] = members[i];
       }
       members = arr;
     }
-
     Member member = new Member();
-    member.email = Prompt.input("이메일", member.email);
-    member.name = Prompt.input("이름", member.name);
-    member.password = Prompt.input("비밀번호", member.password);
-    member.join = Prompt.input("가입일", member.join);
+    member.email = Prompt.input("이메일? ");
+    member.name = Prompt.input("이름? ");
+    member.password = Prompt.input("비밀번호? ");
+    member.joinData = Prompt.input("가입일? ");
 
     members[length++] = member;
   }
 
   static void list() {
     System.out.println("회원 목록");
-    System.out.printf("%s\t%s\t%s\t%s\n", "email", "name", "password", "jon");
+    System.out.printf("%s\t%s\t%s\t%s\n", "email", "name", "password", "joinData");
 
     for (int i = 0; i < length; i++) {
       Member member = members[i];
-      System.out.printf("%s\t%s\t%s\t%s\n",
-          member.email, member.name, member.password, member.join);
+      System.out.printf("%s\t%s\t%s\t%s\n", member.email, member.name, member.password,
+          member.joinData);
     }
   }
 
@@ -85,15 +84,15 @@ public class MemberMenu {
 
     int index = Integer.parseInt(Prompt.input("번호? "));
     if (index < 0 || index >= length) {
-      System.out.println("회원 번호가 옳바르지 않습니다.");
+      System.out.println("회원 번호가 옳지 않습니다.");
       return;
     }
 
     Member member = members[index];
-    System.out.printf("이메일: %s", member.email);
-    System.out.printf("이름: %s", member.name);
-    System.out.printf("비밀번호: %s", member.password);
-    System.out.printf("가입일: %s", member.join);
+    System.out.printf("이메일: %s\n", member.email);
+    System.out.printf("이름: %s\n", member.name);
+    System.out.printf("비밀번호: %s\n", member.password);
+    System.out.printf("가입일: %s\n", member.joinData);
   }
 
   static void modify() {
@@ -101,29 +100,27 @@ public class MemberMenu {
 
     int index = Integer.parseInt(Prompt.input("번호? "));
     if (index < 0 || index >= length) {
-      System.out.println("회원 번호가 옳바르지 않습니다.");
+      System.out.println("회원 번호가 옳지 않습니다.");
       return;
     }
 
     Member member = members[index];
-    member.email = Prompt.input("이메일(%s):", member.email);
-    member.name = Prompt.input("이름(%s):", member.name);
-    member.password = Prompt.input("비밀번호(%s):", member.password);
-    member.join = Prompt.input("가입일(%s):", member.join);
+    member.email = Prompt.input("이메일(%s): ", member.email);
+    member.name = Prompt.input("이름(%s): ", member.name);
+    member.password = Prompt.input("비밀번호(%s): ", member.password);
+    member.joinData = Prompt.input("가입일(%s): ", member.joinData);
   }
 
   static void delete() {
     System.out.println("회원 삭제");
-
     int index = Integer.parseInt(Prompt.input("번호? "));
     if (index < 0 || index >= length) {
-      System.out.println("회원 번호가 옳바르지 않습니다.");
-      return;
+      System.out.println("회원 번호가 옳지 않습니다.");
     }
-    for (int i = 0; i < (length - 1); i++) {
+
+    for (int i = index; i < (length - 1); i++) {
       members[i] = members[i + 1];
     }
     members[--length] = null;
   }
-
 }

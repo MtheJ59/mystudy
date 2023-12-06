@@ -2,11 +2,6 @@ package bitcamp.myapp;
 
 public class BoardMenu {
 
-  static String email;
-  static String name;
-  static String password;
-  static String join;
-
   static Board[] boards = new Board[3];
   static int length = 0;
 
