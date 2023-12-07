@@ -11,7 +11,6 @@ public class Prompt {
     keyIn = new Scanner(in);
   }
 
-
   public String input(String title, Object... args) {
     System.out.print(String.format(title, args));
     return this.keyIn.nextLine();
@@ -32,9 +31,7 @@ public class Prompt {
     return Boolean.parseBoolean(str);
   }
 
-
   public void close() {
     this.keyIn.close();
   }
-
 }

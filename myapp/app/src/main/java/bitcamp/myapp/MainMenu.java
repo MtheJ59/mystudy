@@ -16,7 +16,6 @@ public class MainMenu {
       "5. 도움말",
       AnsiEscape.ANSI_RED + "0. 종료" + AnsiEscape.ANSI_CLEAR
   };
-
   Prompt prompt;
 
   public MainMenu(Prompt prompt) {
