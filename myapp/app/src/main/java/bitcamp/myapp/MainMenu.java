@@ -1,10 +1,9 @@
-package bitcamp.myapp.menu;
+package bitcamp.myapp;
 
 import bitcamp.util.AnsiEscape;
 import bitcamp.util.Prompt;
 
 public class MainMenu {
-
 
   static final String APP_TITLE = AnsiEscape.ANSI_BOLD_RED
       + "[과제관리 시스템]"
@@ -17,6 +16,7 @@ public class MainMenu {
       "5. 도움말",
       AnsiEscape.ANSI_RED + "0. 종료" + AnsiEscape.ANSI_CLEAR
   };
+
   Prompt prompt;
 
   public MainMenu(Prompt prompt) {
@@ -32,12 +32,12 @@ public class MainMenu {
   }
 
   public void execute() {
-    AssignmentMenu assignmentMenu = new AssignmentMenu("과제", this.prompt);
+    printMenu();
+
     BoardMenu boardMenu = new BoardMenu("게시판", this.prompt);
     BoardMenu greetingBoardMenu = new BoardMenu("가입인사", this.prompt);
+    AssignmentMenu assignmentMenu = new AssignmentMenu("과제", this.prompt);
     MemberMenu memberMenu = new MemberMenu("회원", this.prompt);
-
-    printMenu();
 
     while (true) {
       String input = this.prompt.input("메인> ");

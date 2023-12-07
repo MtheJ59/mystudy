@@ -1,4 +1,4 @@
-package bitcamp.myapp.menu;
+package bitcamp.myapp;
 
 import bitcamp.myapp.vo.Assignment;
 import bitcamp.util.Prompt;
@@ -11,53 +11,8 @@ public class AssignmentMenu {
   Prompt prompt;
 
   public AssignmentMenu(String title, Prompt prompt) {
-
     this.title = title;
     this.prompt = prompt;
-  }
-
-
-  void printMenu() {
-    System.out.printf("[%s]\n", this.title);
-    System.out.println("1. 등록");
-    System.out.println("2. 조회");
-    System.out.println("3. 변경");
-    System.out.println("4. 삭제");
-    System.out.println("5. 목록");
-    System.out.println("0. 이전");
-  }
-
-  void execute() {
-    this.printMenu();
-
-    while (true) {
-      String input = this.prompt.input("메인/%s> ", this.title);
-
-      switch (input) {
-        case "1":
-          this.add();
-          break;
-        case "2":
-          this.view();
-          break;
-        case "3":
-          this.modify();
-          break;
-        case "4":
-          this.delete();
-          break;
-        case "5":
-          this.list();
-          break;
-        case "0":
-          return;
-        case "menu":
-          this.printMenu();
-          break;
-        default:
-          System.out.println("메뉴 번호가 옳지 않습니다!");
-      }
-    }
   }
 
   void add() {
@@ -141,5 +96,48 @@ public class AssignmentMenu {
     }
     this.length--;
     this.assignments[this.length] = null;
+  }
+
+  void printMenu() {
+    System.out.printf("[%s]\n", this.title);
+    System.out.println("1. 등록");
+    System.out.println("2. 조회");
+    System.out.println("3. 변경");
+    System.out.println("4. 삭제");
+    System.out.println("5. 목록");
+    System.out.println("0. 이전");
+  }
+
+  void execute() {
+    this.printMenu();
+
+    while (true) {
+      String input = this.prompt.input("메인/%s> ", this.title);
+
+      switch (input) {
+        case "1":
+          this.add();
+          break;
+        case "2":
+          this.view();
+          break;
+        case "3":
+          this.modify();
+          break;
+        case "4":
+          this.delete();
+          break;
+        case "5":
+          this.list();
+          break;
+        case "0":
+          return;
+        case "menu":
+          this.printMenu();
+          break;
+        default:
+          System.out.println("메뉴 번호가 옳지 않습니다!");
+      }
+    }
   }
 }

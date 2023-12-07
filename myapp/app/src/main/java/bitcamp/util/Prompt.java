@@ -11,27 +11,30 @@ public class Prompt {
     keyIn = new Scanner(in);
   }
 
+
   public String input(String title, Object... args) {
     System.out.print(String.format(title, args));
     return this.keyIn.nextLine();
   }
 
-  int inputInt(String title, Object... args) {
+  public int inputInt(String title, Object... args) {
     String str = this.input(title, args);
     return Integer.parseInt(str);
   }
 
-  float inputFloat(String title, Object... args) {
+  public float inputFloat(String title, Object... args) {
     String str = this.input(title, args);
     return Float.parseFloat(str);
   }
 
-  boolean inputBoolean(String title, Object... args) {
+  public boolean inputBoolean(String title, Object... args) {
     String str = this.input(title, args);
     return Boolean.parseBoolean(str);
   }
 
+
   public void close() {
     this.keyIn.close();
   }
+
 }
