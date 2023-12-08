@@ -31,6 +31,7 @@ public class Exam0100 {
     // - Heap: 아직 생성된 객체 없음
 
     Exam0100 obj; // obj는 main()을 호출할 때 시작 시점에 JVM Stack에 생성된 상태이다.
+                  // 즉 외부에서 값을 받는 것을 '파라미터'라고 한다.
 
     obj = new Exam0100();
 
@@ -43,6 +44,5 @@ public class Exam0100 {
 
   }
 }
-
 
 

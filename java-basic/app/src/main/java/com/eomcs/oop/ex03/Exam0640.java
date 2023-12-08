@@ -34,9 +34,9 @@ public class Exam0640 {
     new A();
     System.out.println("-------------------------------");
 
-    new A();
+    new A();// 클래스는 한번만 실행되므로 A()는 출력되지 않는다.
     System.out.println("-------------------------------");
-
+    
     new A();
     System.out.println("-------------------------------");
 

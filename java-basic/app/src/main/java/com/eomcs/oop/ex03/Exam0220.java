@@ -1,4 +1,4 @@
-// 인스턴스 메서드 - 내장 변수 this
+// 인스턴스 메서드 - 내장 변수(Built-in) this
 package com.eomcs.oop.ex03;
 
 public class Exam0220 {
@@ -22,7 +22,7 @@ public class Exam0220 {
     void m3() {
       // 인스턴스 변수를 사용할 때 this를 생략할 수 있다.
       //this.value = 200;
-      value = 200; // 앞에 자동으로 this가 붙는다.
+      value = 200; // 앞에 자동으로 this가 붙는다. 컴파일 할 때에 자동으로 this가 붙는다.
     }
 
     void m4(int value) {

@@ -1,4 +1,4 @@
-// 생성자 - this()
+// 생성자 - this() = 다른 생성자를 호출할 때는 this()를 사용한다.
 package com.eomcs.oop.ex03;
 
 public class Exam0440 {
