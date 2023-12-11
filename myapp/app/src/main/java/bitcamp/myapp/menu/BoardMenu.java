@@ -1,9 +1,10 @@
-package bitcamp.myapp;
+package bitcamp.myapp.menu;
 
+import bitcamp.menu.Menu;
 import bitcamp.myapp.vo.Board;
 import bitcamp.util.Prompt;
 
-public class BoardMenu {
+public class BoardMenu implements Menu {
 
   Board[] boards = new Board[3];
   int length = 0;
@@ -25,7 +26,12 @@ public class BoardMenu {
     System.out.println("0. 이전");
   }
 
-  void execute() {
+  @Override
+  public String getTitle() {
+    return null;
+  }
+
+  public void execute(Prompt prompt) {
     this.printMenu();
     while (true) {
       String input = this.prompt.input("메인/%s> ", this.title);
@@ -82,13 +88,7 @@ public class BoardMenu {
   }
 
   void list() {
-    System.out.println("게시글 목록:");
-    System.out.printf("%-20s\t%10s\t%s\n", "Title", "Writer", "Date");
 
-    for (int i = 0; i < this.length; i++) {
-      Board board = this.boards[i];
-      System.out.printf("%-20s\t%10s\t%s\n", board.title, board.writer, board.createdDate);
-    }
   }
 
   void view() {
