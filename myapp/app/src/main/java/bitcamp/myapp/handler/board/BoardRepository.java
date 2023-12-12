@@ -10,8 +10,8 @@ public class BoardRepository {
   private Board[] boards = new Board[3];
   private int length = 0;
 
-  // 대신 목록에 값을 추가하거나, 꺼내거나, 삭제하려면
-  // 메소드를 통해 수행하도록 유도한다.
+  // 대신 목록에 값을 추가하거나, 꺼내거나 삭제하려면
+  // 메서드를 통해 수행하도록 유도한다.
   // => 캡슐화
 
   public void add(Board board) {
@@ -26,6 +26,7 @@ public class BoardRepository {
 
       this.boards = arr;
     }
+
     this.boards[this.length++] = board;
   }
 
@@ -73,6 +74,5 @@ public class BoardRepository {
     // 새 객체로 교체하기 전에 이전 객체를 리턴한다.
     // 호출하는 쪽에서 받아 쓰거나 말거나 알아서 하라고!
     return old;
-
   }
 }

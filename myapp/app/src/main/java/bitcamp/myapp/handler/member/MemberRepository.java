@@ -19,6 +19,7 @@ public class MemberRepository {
 
       this.members = arr;
     }
+
     this.members[this.length++] = member;
   }
 

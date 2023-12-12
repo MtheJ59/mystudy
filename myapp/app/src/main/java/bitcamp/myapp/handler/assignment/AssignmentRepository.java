@@ -10,20 +10,21 @@ public class AssignmentRepository {
   public void add(Assignment assignment) {
     if (this.length == this.assignments.length) {
       int oldSize = this.assignments.length;
-      int newSize = oldSize + (oldSize / 2);
+      int newSize = oldSize + (oldSize >> 1);
 
       Assignment[] arr = new Assignment[newSize];
       for (int i = 0; i < oldSize; i++) {
         arr[i] = this.assignments[i];
       }
+
       this.assignments = arr;
     }
-    this.assignments[this.length] = assignment;
-    this.length++;
+
+    this.assignments[this.length++] = assignment;
   }
 
   public Assignment remove(int index) {
-    if (index < 0 || index > this.length) {
+    if (index < 0 || index >= this.length) {
       return null;
     }
 
@@ -32,8 +33,7 @@ public class AssignmentRepository {
     for (int i = index; i < (this.length - 1); i++) {
       this.assignments[i] = this.assignments[i + 1];
     }
-    this.length--;
-    this.assignments[this.length] = null;
+    this.assignments[--this.length] = null;
 
     return deleted;
   }
