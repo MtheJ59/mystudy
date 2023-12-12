@@ -1,22 +1,25 @@
 package bitcamp.myapp.handler.assignment;
 
+import bitcamp.menu.Menu;
 import bitcamp.menu.MenuHandler;
 import bitcamp.myapp.vo.Assignment;
+import bitcamp.util.AnsiEscape;
 import bitcamp.util.Prompt;
 
 public class AssignmentModifyHandler implements MenuHandler {
 
-  AssignmentRepository assignmentRepository;
   Prompt prompt;
+  AssignmentRepository assignmentRepository;
 
-  public AssignmentModifyHandler(AssignmentRepository assignmentRepository,Prompt prompt) {
+
+  public AssignmentModifyHandler(AssignmentRepository assignmentRepository, Prompt prompt) {
     this.assignmentRepository = assignmentRepository;
     this.prompt = prompt;
   }
 
   @Override
-  public void action() {
-    System.out.println("과제 변경:");
+  public void action(Menu menu) {
+    System.out.printf(AnsiEscape.ANSI_BOLD + "[%s]\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
 
     int index = this.prompt.inputInt("번호? ");
     if (index < 0 || index >= this.assignmentRepository.length) {

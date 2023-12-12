@@ -2,6 +2,7 @@ package bitcamp.myapp;
 
 import bitcamp.menu.MenuGroup;
 import bitcamp.menu.MenuItem;
+import bitcamp.myapp.handler.HelpHandler;
 import bitcamp.myapp.handler.assignment.AssignmentAddHandler;
 import bitcamp.myapp.handler.assignment.AssignmentDeleteHandler;
 import bitcamp.myapp.handler.assignment.AssignmentListHandler;
@@ -14,12 +15,6 @@ import bitcamp.myapp.handler.board.BoardListHandler;
 import bitcamp.myapp.handler.board.BoardModifyHandler;
 import bitcamp.myapp.handler.board.BoardRepository;
 import bitcamp.myapp.handler.board.BoardViewHandler;
-import bitcamp.myapp.handler.greeting.GreetingAddHandler;
-import bitcamp.myapp.handler.greeting.GreetingDeleteHandler;
-import bitcamp.myapp.handler.greeting.GreetingListHandler;
-import bitcamp.myapp.handler.greeting.GreetingModifyHandler;
-import bitcamp.myapp.handler.greeting.GreetingRepository;
-import bitcamp.myapp.handler.greeting.GreetingViewHandler;
 import bitcamp.myapp.handler.member.MemberAddHandler;
 import bitcamp.myapp.handler.member.MemberDeleteHandler;
 import bitcamp.myapp.handler.member.MemberListHandler;
@@ -34,24 +29,21 @@ public class App {
     Prompt prompt = new Prompt(System.in);
     //new MainMenu(prompt).execute();
 
-    AssignmentRepository assignmentRepository = new AssignmentRepository();
     BoardRepository boardRepository = new BoardRepository();
+    AssignmentRepository assignmentRepository = new AssignmentRepository();
     MemberRepository memberRepository = new MemberRepository();
-    GreetingRepository greetingRepository = new GreetingRepository();
+    BoardRepository greetingRepository = new BoardRepository();
 
     MenuGroup mainMenu = new MenuGroup("메인");
 
     MenuGroup assignmentMenu = new MenuGroup("과제");
-    assignmentMenu.add(new MenuItem("등록",
-        new AssignmentAddHandler(assignmentRepository, prompt)));
-    assignmentMenu.add(new MenuItem("조회",
-        new AssignmentViewHandler(assignmentRepository, prompt)));
-    assignmentMenu.add(new MenuItem("변경",
-        new AssignmentModifyHandler(assignmentRepository, prompt)));
-    assignmentMenu.add(new MenuItem("삭제",
-        new AssignmentDeleteHandler(assignmentRepository, prompt)));
-    assignmentMenu.add(new MenuItem("목록",
-        new AssignmentListHandler(assignmentRepository)));
+    assignmentMenu.add(new MenuItem("등록", new AssignmentAddHandler(assignmentRepository, prompt)));
+    assignmentMenu.add(new MenuItem("조회", new AssignmentViewHandler(assignmentRepository, prompt)));
+    assignmentMenu.add(
+        new MenuItem("변경", new AssignmentModifyHandler(assignmentRepository, prompt)));
+    assignmentMenu.add(
+        new MenuItem("삭제", new AssignmentDeleteHandler(assignmentRepository, prompt)));
+    assignmentMenu.add(new MenuItem("목록", new AssignmentListHandler(assignmentRepository)));
     mainMenu.add(assignmentMenu);
 
     MenuGroup boardMenu = new MenuGroup("게시글");
@@ -71,14 +63,14 @@ public class App {
     mainMenu.add(memberMenu);
 
     MenuGroup greetingMenu = new MenuGroup("가입인사");
-    greetingMenu.add(new MenuItem("등록", new GreetingAddHandler(greetingRepository, prompt)));
-    greetingMenu.add(new MenuItem("조회", new GreetingViewHandler(greetingRepository, prompt)));
-    greetingMenu.add(new MenuItem("변경", new GreetingModifyHandler(greetingRepository, prompt)));
-    greetingMenu.add(new MenuItem("삭제", new GreetingDeleteHandler(greetingRepository, prompt)));
-    greetingMenu.add(new MenuItem("목록", new GreetingListHandler(greetingRepository)));
+    greetingMenu.add(new MenuItem("등록", new BoardAddHandler(greetingRepository, prompt)));
+    greetingMenu.add(new MenuItem("조회", new BoardViewHandler(greetingRepository, prompt)));
+    greetingMenu.add(new MenuItem("변경", new BoardModifyHandler(greetingRepository, prompt)));
+    greetingMenu.add(new MenuItem("삭제", new BoardDeleteHandler(greetingRepository, prompt)));
+    greetingMenu.add(new MenuItem("목록", new BoardListHandler(greetingRepository)));
     mainMenu.add(greetingMenu);
-    
-    mainMenu.add(new MenuItem("도움말"));
+
+    mainMenu.add(new MenuItem("도움말", new HelpHandler()));
 
     mainMenu.execute(prompt);
 
