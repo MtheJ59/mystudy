@@ -1,6 +1,7 @@
 package bitcamp.myapp.handler;
 
 import bitcamp.menu.Menu;
+import bitcamp.menu.MenuGroup;
 import bitcamp.util.AnsiEscape;
 import bitcamp.util.Prompt;
 
@@ -42,10 +43,10 @@ public class MainMenu implements Menu {
 
   public void execute(Prompt prompt) {
 
-    Menu boardMenu = new BoardMenu("게시판", this.prompt);
-    Menu greetingMenu = new BoardMenu("가입인사", this.prompt);
-    Menu assignmentMenu = new AssignmentMenu("과제", this.prompt);
-    Menu memberMenu = new MemberMenu("회원", this.prompt);
+    Menu boardMenu = new MenuGroup("게시판");
+    Menu greetingMenu = new MenuGroup("가입인사");
+    Menu assignmentMenu = new MenuGroup("과제");
+    Menu memberMenu = new MenuGroup("회원");
     Menu helpMenu = new HelpMenu("도움말", this.prompt);
 
     printMenu();
