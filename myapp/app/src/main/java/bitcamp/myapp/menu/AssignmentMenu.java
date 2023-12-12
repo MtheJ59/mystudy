@@ -6,10 +6,13 @@ import bitcamp.util.Prompt;
 
 public class AssignmentMenu implements Menu {
 
+  // 의존 객체(Dependency Object ==> dependency);
+  // - 클래스가 작업을 수행할 때 사용하는 객체
+  Prompt prompt;
+
+  String title;
   Assignment[] assignments = new Assignment[3];
   int length = 0;
-  String title;
-  Prompt prompt;
 
   public AssignmentMenu(String title, Prompt prompt) {
     this.title = title;
@@ -39,19 +42,19 @@ public class AssignmentMenu implements Menu {
 
       switch (input) {
         case "1":
-          add();
+          this.add();
           break;
         case "2":
-          view();
+          this.view();
           break;
         case "3":
-          modify();
+          this.modify();
           break;
         case "4":
-          delete();
+          this.delete();
           break;
         case "5":
-          list();
+          this.list();
           break;
         case "0":
           return;

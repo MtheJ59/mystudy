@@ -16,7 +16,6 @@ public class BoardListHandler implements MenuHandler {
 
   @Override
   public void action() {
-
     System.out.println("게시글 목록:");
     System.out.printf("%-20s\t%10s\t%s\n", "Title", "Writer", "Date");
 

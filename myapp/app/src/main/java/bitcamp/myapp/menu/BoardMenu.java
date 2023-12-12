@@ -6,11 +6,17 @@ import bitcamp.util.Prompt;
 
 public class BoardMenu implements Menu {
 
-  Board[] boards = new Board[3];
-  int length = 0;
-  String title;
+  // 의존 객체(Dependency Object ==> dependency);
+  // - 클래스가 작업을 수행할 때 사용하는 객체
   Prompt prompt;
 
+  String title;
+  Board[] boards = new Board[3];
+  int length = 0;
+
+  // BoardMenu 인스턴스를 생성할 때 반드시 게시판 제목을 설정하도록 강요한다.
+  // 생성자란(constructor)?
+  // => 인스턴스를 사용하기 전에 유효한 상태로 설정하는 작업을 수행하는 메서드
   public BoardMenu(String title, Prompt prompt) {
     this.title = title;
     this.prompt = prompt;
@@ -38,19 +44,19 @@ public class BoardMenu implements Menu {
 
       switch (input) {
         case "1":
-          add();
+          this.add();
           break;
         case "2":
-          view();
+          this.view();
           break;
         case "3":
-          modify();
+          this.modify();
           break;
         case "4":
-          delete();
+          this.delete();
           break;
         case "5":
-          list();
+          this.list();
           break;
         case "0":
           return;
@@ -87,8 +93,14 @@ public class BoardMenu implements Menu {
     this.boards[this.length++] = board;
   }
 
-  void list() {
+  void list() { // 논스태틱 메서드 == 인스턴스 메서드
+    System.out.println("게시글 목록:");
+    System.out.printf("%-20s\t%10s\t%s\n", "Title", "Writer", "Date");
 
+    for (int i = 0; i < this.length; i++) {
+      Board board = this.boards[i];
+      System.out.printf("%-20s\t%10s\t%s\n", board.title, board.writer, board.createdDate);
+    }
   }
 
   void view() {
