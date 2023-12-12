@@ -1,7 +1,7 @@
 package bitcamp.myapp.handler.assignment;
 
-import bitcamp.menu.Menu;
-import bitcamp.menu.MenuHandler;
+import bitcamp.myapp.menu.Menu;
+import bitcamp.myapp.menu.MenuHandler;
 import bitcamp.myapp.vo.Assignment;
 import bitcamp.util.AnsiEscape;
 import bitcamp.util.Prompt;
@@ -10,7 +10,7 @@ public class AssignmentAddHandler implements MenuHandler {
 
   Prompt prompt;
   AssignmentRepository assignmentRepository;
-
+  Assignment assignment = new Assignment();
 
   public AssignmentAddHandler(AssignmentRepository assignmentRepository, Prompt prompt) {
     this.assignmentRepository = assignmentRepository;
@@ -19,7 +19,7 @@ public class AssignmentAddHandler implements MenuHandler {
 
   @Override
   public void action(Menu menu) {
-    System.out.printf(AnsiEscape.ANSI_BOLD + "[%s]\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
+    System.out.printf(AnsiEscape.ANSI_BOLD + "%s\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
 
     Assignment assignment = new Assignment();
     assignment.title = this.prompt.input("과제명? ");

@@ -23,7 +23,7 @@ public class AssignmentRepository {
     this.assignments[this.length++] = assignment;
   }
 
-  public Assignment remove(int index) {
+  public Assignment remov(int index) {
     if (index < 0 || index >= this.length) {
       return null;
     }
@@ -57,7 +57,6 @@ public class AssignmentRepository {
     if (index < 0 || index >= this.length) {
       return null;
     }
-
     Assignment old = this.assignments[index];
     this.assignments[index] = assignment;
 

@@ -1,7 +1,7 @@
 package bitcamp.myapp.handler.member;
 
-import bitcamp.menu.Menu;
-import bitcamp.menu.MenuHandler;
+import bitcamp.myapp.menu.Menu;
+import bitcamp.myapp.menu.MenuHandler;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.AnsiEscape;
 import bitcamp.util.Prompt;
@@ -31,3 +31,4 @@ public class MemberViewHandler implements MenuHandler {
     System.out.printf("가입일: %s\n", member.createdDate);
   }
 }
+

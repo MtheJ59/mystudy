@@ -1,7 +1,7 @@
 package bitcamp.myapp.handler.member;
 
-import bitcamp.menu.Menu;
-import bitcamp.menu.MenuHandler;
+import bitcamp.myapp.menu.Menu;
+import bitcamp.myapp.menu.MenuHandler;
 import bitcamp.util.AnsiEscape;
 import bitcamp.util.Prompt;
 
