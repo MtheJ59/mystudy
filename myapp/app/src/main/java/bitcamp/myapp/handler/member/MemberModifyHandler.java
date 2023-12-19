@@ -7,18 +7,17 @@ import java.util.ArrayList;
 
 public class MemberModifyHandler extends AbstractMenuHandler {
 
-  private ArrayList objectRepository;
+  private ArrayList<Member> objectRepository;
 
-  public MemberModifyHandler(ArrayList objectRepository, Prompt prompt) {
+  public MemberModifyHandler(ArrayList<Member> objectRepository, Prompt prompt) {
     super(prompt);
     this.objectRepository = objectRepository;
   }
 
   @Override
-  protected void action() {
-
+  public void action() {
     int index = this.prompt.inputInt("번호? ");
-    Member old = (Member) this.objectRepository.get(index);
+    Member old = this.objectRepository.get(index);
     if (old == null) {
       System.out.println("회원 번호가 유효하지 않습니다.");
       return;
@@ -29,5 +28,7 @@ public class MemberModifyHandler extends AbstractMenuHandler {
     member.setName(this.prompt.input("이름(%s)? ", old.getName()));
     member.setPassword(this.prompt.input("새 암호? "));
     member.setCreatedDate(this.prompt.input("가입일(%s)? ", old.getCreatedDate()));
+
+    this.objectRepository.set(index, member);
   }
 }

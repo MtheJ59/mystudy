@@ -16,10 +16,9 @@ public class AssignmentModifyHandler extends AbstractMenuHandler {
   }
 
   @Override
-  protected void action() {
-
+  public void action() {
     int index = this.prompt.inputInt("번호? ");
-    Assignment old = (Assignment) this.objectRepository.get(index);
+    Assignment old = this.objectRepository.get(index);
     if (old == null) {
       System.out.println("과제 번호가 유효하지 않습니다.");
       return;

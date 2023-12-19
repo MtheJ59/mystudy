@@ -47,6 +47,10 @@ public class MenuGroup extends AbstractMenu {
     System.out.printf("0. %s\n", "이전");
   }
 
+  @Override
+  public String getTitle() {
+    return this.getTitle();
+  }
 
   public void add(Menu menu) {
     if (this.menuSize == this.menus.length) {

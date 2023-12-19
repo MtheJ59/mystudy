@@ -7,18 +7,20 @@ import java.util.ArrayList;
 
 public class MemberViewHandler extends AbstractMenuHandler {
 
-  private ArrayList objectRepository;
+  private Prompt prompt;
+  private ArrayList<Member> objectRepository;
 
-  public MemberViewHandler(ArrayList objectRepository, Prompt prompt) {
+  public MemberViewHandler(ArrayList<Member> objectRepository, Prompt prompt) {
     super(prompt);
     this.objectRepository = objectRepository;
+    this.prompt = prompt;
   }
 
   @Override
-  protected void action() {
+  public void action() {
 
     int index = this.prompt.inputInt("번호? ");
-    Member member = (Member) this.objectRepository.get(index);
+    Member member = this.objectRepository.get(index);
     if (member == null) {
       System.out.println("회원 번호가 유효하지 않습니다.");
       return;

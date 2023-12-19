@@ -7,21 +7,24 @@ import java.util.ArrayList;
 
 public class MemberListHandler extends AbstractMenuHandler {
 
-  private ArrayList objectRepository;
+  private ArrayList<Member> objectRepository;
 
-  public MemberListHandler(ArrayList objectRepository, Prompt prompt) {
+  public MemberListHandler(ArrayList<Member> objectRepository, Prompt prompt) {
     super(prompt);
     this.objectRepository = objectRepository;
   }
 
   @Override
-  protected void action() {
+  public void action() {
 
     System.out.printf("%-10s\t%30s\t%s\n", "이름", "이메일", "가입일");
 
-    for (Object object : this.objectRepository.toArray()) {
-      Member member = (Member) object;
-      System.out.printf("%-10s\t%30s\t%s\n", member.getName(),
+    Member[] members = new Member[this.objectRepository.size()];
+    this.objectRepository.toArray(members);
+
+    for (Member member : members) {
+      System.out.printf("%-10s\t%30s\t%s\n",
+          member.getName(),
           member.getEmail(),
           member.getCreatedDate());
     }

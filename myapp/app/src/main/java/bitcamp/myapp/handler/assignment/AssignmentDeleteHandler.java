@@ -16,7 +16,7 @@ public class AssignmentDeleteHandler extends AbstractMenuHandler {
   }
 
   @Override
-  protected void action() {
+  public void action() {
     int index = this.prompt.inputInt("번호? ");
     if (this.objectRepository.remove(index) == null) {
       System.out.println("과제 번호가 유효하지 않습니다.");
