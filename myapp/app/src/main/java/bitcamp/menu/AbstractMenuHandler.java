@@ -6,6 +6,7 @@ import bitcamp.util.Prompt;
 public abstract class AbstractMenuHandler implements MenuHandler {
 
   protected Prompt prompt;
+  protected Menu menu;
 
   public AbstractMenuHandler(Prompt prompt) {
     this.prompt = prompt;
@@ -14,6 +15,7 @@ public abstract class AbstractMenuHandler implements MenuHandler {
   @Override
   public void action(Menu menu) {
     printMenuTitle(menu.getTitle());
+    this.menu = menu; // 서브 클래스를 구현할 때 사용할 일이 있다면 쓸 수 있도록 보관해 둔다.
 
     // Menu를 실행할 때 이 메소드가 호출되면
     // 즉시 서브 클래스의 다음 메소드를 호출한다.
@@ -25,5 +27,9 @@ public abstract class AbstractMenuHandler implements MenuHandler {
   }
 
   // 서브 클래스가 구현해야 할 메소드
-  public abstract void action();
+  // 슈퍼 클래스의 action(Menu)을 실행할 때 호출되는 메소드이다.
+  // 외부에서 호출 할 메소드가 아니다.
+  // 따라서 접근 범위를 서브 클래스에서 접근할 수 있도록 재현한다.
+  // public -> protected 로 선정한다.
+  protected abstract void action();
 }
