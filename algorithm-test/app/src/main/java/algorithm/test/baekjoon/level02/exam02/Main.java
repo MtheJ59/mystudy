@@ -5,16 +5,21 @@ import java.util.Scanner;
 public class Main {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    int year = sc.nextInt();
 
-    if (year % 4 == 0) {
-      if (year % 400 == 0)
-        System.out.println("1");
-      else if (year % 100 == 0)
-        System.out.println("0");
-      else
-        System.out.println("1");
-    } else
-      System.out.println("0");
+    int a = sc.nextInt();
+
+    if (a >= 90) {
+      System.out.println("A");
+    } else if (a >= 80) {
+      System.out.println("B");
+    } else if (a >= 70) {
+      System.out.println("C");
+    } else if (a >= 60) {
+      System.out.println("D");
+    } else if (a <= 59) {
+      System.out.println("F");
+    }
   }
 }
+
+
