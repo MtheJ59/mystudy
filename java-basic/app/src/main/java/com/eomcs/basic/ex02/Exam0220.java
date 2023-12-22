@@ -16,11 +16,8 @@ public class Exam0220 {
     // Integer ==> int
     int i2 = obj1.intValue();
 
+
   }
 }
-
-
-
-
 
 
