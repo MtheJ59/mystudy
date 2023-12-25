@@ -15,9 +15,18 @@ public class Main3 {
     // 1900년은 100의 배수이고 400의 배수는 아니라서 윤년이 아님
     // 2000년은 400의 배수여서 윤년
 
-
+    if (a % 4 == 0) {
+      if (a % 400 == 0)
+        System.out.println("1");
+      else if (a % 100 == 0)
+        System.out.println("0");
+      else
+        System.out.println("1");
+    } else
+      System.out.println("0");
 
   }
+
 }
 
 
