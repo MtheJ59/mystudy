@@ -2,7 +2,7 @@ package algorithm.test.baekjoon.test;
 
 import java.util.Scanner;
 
-public class Main6 {
+public class Main06 {
   public static void main(String[] args) {
 
     Scanner sc = new Scanner(System.in);
