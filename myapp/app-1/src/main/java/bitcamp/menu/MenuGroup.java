@@ -63,7 +63,7 @@ public class MenuGroup extends AbstractMenu {
     int i = 1;
     while (iterator.hasNext()) {
       Menu menu = iterator.next();
-      System.out.printf("%d. %s\n", (i++), menus.get(i).getTitle());
+      System.out.printf("%d. %s\n", (i++), menu.getTitle());
     }
 
     System.out.printf("0. %s\n", "이전");
