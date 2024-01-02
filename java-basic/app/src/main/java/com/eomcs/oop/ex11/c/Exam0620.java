@@ -4,7 +4,7 @@ package com.eomcs.oop.ex11.c;
 class H {
   int v1 = 1;
   int v2 = 2;
-  int v3 = 3; 
+  int v3 = 3;
 
   class X {
     int v1 = 10;
@@ -26,6 +26,7 @@ class H {
     }
   }
 }
+
 
 public class Exam0620 {
 
