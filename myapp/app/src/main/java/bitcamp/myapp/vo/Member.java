@@ -3,12 +3,31 @@ package bitcamp.myapp.vo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Member implements Serializable {
+public class Member implements Serializable, CsvString {
+
+  private static final long serialVersionUID = 100L;
 
   private String email;
   private String name;
   private String password;
   private Date createdDate;
+
+  // 팩토리 메소드
+  public static Member createFromCsv(String csv) {
+    String[] values = csv.split(","); // "aaa,aaaa,2023-01-01" 이면 배열에는 {'aaa,aaaa,2023-01-01'}
+    Member obj = new Member();
+    obj.setEmail(values[0]);
+    obj.setName(values[1]);
+    obj.setPassword(values[2]);
+    obj.setCreatedDate(new Date(Long.valueOf(values[3])));
+    return obj;
+  }
+
+  @Override
+  public String toCsvString() {
+    return String.format("%s,%s,%s,%d", this.email, this.name, this.password,
+        this.createdDate.getTime());
+  }
 
   public String getEmail() {
     return email;
