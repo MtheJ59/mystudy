@@ -4,7 +4,7 @@ package com.eomcs.oop.ex02.step02;
 // # 관련된 기능(메서드)을 묶어 분류하기
 // 1) 분류 전
 // 2) 메서드를 클래스로 묶어 분류하기
-//
+// 
 public class App {
 
   public static void main(String[] args) {
@@ -16,13 +16,11 @@ public class App {
 
     // 클래스 메서드를 호출하여 작업을 수행하고,
     // 리턴 결과는 로컬 변수에 저장한다.
-    // 로컬 변수는 호출이 되고나서 사라진다.
-
+    result = Calculator.plus(2, 3);
     result = Calculator.minus(result, 1);
     result = Calculator.multiple(result, 7);
     result = Calculator.divide(result, 3);
-    // 다른 클래스에 있는 plus, minus, multiple, divide 사용 할 때에는
-    // 인스턴스 앞에 클래스 이름을 넣어야 한다.
+
     System.out.printf("result = %d\n", result);
   }
 }

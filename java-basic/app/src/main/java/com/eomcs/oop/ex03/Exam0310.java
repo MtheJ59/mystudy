@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Exam0310 {
 
   static class Math {
-    // 다음 메서드와 같이 인스턴스 멤버(변수,메소드)를 사용하지 않고 
+    // 다음 메서드와 같이 인스턴스 멤버(변수,메서드)를 사용하지 않고 
     // 파라미터 값을 가지고 작업하는 경우에는 클래스 메서드로 정의한다.
     public static int abs(int value) {
       if (value < 0)

@@ -22,6 +22,7 @@ public class Exam0640 {
   }
 
   public static void main(String[] args) throws Exception {
+    System.out.println("main() 호출됨!");
 
     // 클래스가 로딩되는 경우,
     // 3) 해당 클래스의 인스턴스를 생성할 때
@@ -34,9 +35,9 @@ public class Exam0640 {
     new A();
     System.out.println("-------------------------------");
 
-    new A();// 클래스는 한번만 실행되므로 A()는 출력되지 않는다.
+    new A();
     System.out.println("-------------------------------");
-    
+
     new A();
     System.out.println("-------------------------------");
 

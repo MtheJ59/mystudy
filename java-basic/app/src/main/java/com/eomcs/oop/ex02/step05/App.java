@@ -22,25 +22,25 @@ public class App {
     Calculator c1 = new Calculator();
     Calculator c2 = new Calculator();
 
-    // 계산을 수행할 때 어떤 result 변수를 사용할 것인지
-    // 메소드에 알려줘야 한다.
-    Calculator.plus(c1, 2);
-    Calculator.plus(c2, 3);
+    // 계산을 수행할 때 어떤 result 변수를 사용할 것인지 
+    // 메서드에 알려줘야 한다. 
+    Calculator.plus(c1, 2); 
+    Calculator.plus(c2, 3); 
 
-    Calculator.plus(c1, 3);
+    Calculator.plus(c1, 3); 
     Calculator.multiple(c2, 2);
 
-    Calculator.minus(c1, 1);
-    Calculator.plus(c2, 7);
+    Calculator.minus(c1, 1); 
+    Calculator.plus(c2, 7); 
 
-    Calculator.multiple(c1, 7);
+    Calculator.multiple(c1, 7); 
     Calculator.divide(c2, 4);
 
-    Calculator.divide(c1, 3);
-    Calculator.minus(c2, 5);
+    Calculator.divide(c1, 3); 
+    Calculator.minus(c2, 5); 
 
-    // result 변수가 어떤 인스턴스에 있는 변수인지 지정해야 한다.
-    // result 변수가 어떤 인스턴스에 있는 변수인지 지정해야 한다.
+    // 식1의 계산 결과는 c1 인스턴스의 result 변수에 들어 있고,
+    // 식2의 계산 결과는 c2 인스턴스의 result 변수에 들어 있다.
     System.out.printf("result = %d\n", c1.result);
     System.out.printf("result = %d\n", c2.result);
   }

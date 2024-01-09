@@ -14,8 +14,8 @@ public class Exam0950 {
     //
     Monitor(int bright, int contrast) {
       // 변수 초기화 문장(variable initializer)은 생성자의 앞부분으로 복사된다.
-      //    contrast = 50;
-      //    heightRes = 1080;
+      //      contrast = 50;
+      //      heightRes = 1080;
       this.bright = bright;
       this.contrast = contrast;
     }
