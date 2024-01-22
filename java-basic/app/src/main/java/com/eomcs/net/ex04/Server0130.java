@@ -30,7 +30,7 @@ public class Server0130 {
               out.flush();
               break;
             } else if (name.equalsIgnoreCase("stop")) { // 서버 종료하기
-              out.println("Goodbye!");
+              out.println("Goodbye! 나는 잠들어요.");
               out.flush();
               break loop;
             }

@@ -12,7 +12,8 @@ public class Exam0120 {
     File file = new File("./sample/test1.jpg");
 
     FileInputStream in = new FileInputStream(file);
-    byte[] bytes = in.readAllBytes();
+    byte[] bytes = in.readAllBytes(); // 1만 byte이내면 바이트 배열 반복도 괜찮다.
+    System.out.println(bytes.length);
     in.close();
 
     Encoder encoder = Base64.getEncoder();
@@ -21,13 +22,5 @@ public class Exam0120 {
   }
 
 }
-
-
-
-
-
-
-
-
 
 

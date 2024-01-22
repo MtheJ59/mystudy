@@ -21,7 +21,7 @@ public class Server0110 {
 
         System.out.println("클라이언트가 연결되었음!");
 
-        // stateful 방식은 클라이언트와 데이터를 주고 받는 동안 
+        // stateful 방식은 클라이언트와 데이터를 주고 받는 동안
         // 그 클라이언트의 작업 상태를 유지할 수 있다.
         // 예를 들어 다음과 같이 몇 번 요청했는지 요청 횟수를 유지할 수 있다.
         int count = 0;
@@ -34,8 +34,8 @@ public class Server0110 {
             break;
           }
           count++;
-          out.printf("%s 님 반갑습니다!(%d)\n", name, count);
-          out.flush();
+          out.printf("%s 님 반갑습니다!(%d)\n", name, count); // Client에서 println으로 출력이 된다하여도
+          out.flush();                                        // readLine으로 읽기 때문에 꼭 줄바꿈을 해줘야 한다.
         }
       }
       System.out.println("클라이언트와의 연결을 끊었음.");
