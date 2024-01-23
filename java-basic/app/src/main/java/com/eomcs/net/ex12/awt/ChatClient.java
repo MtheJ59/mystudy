@@ -21,7 +21,7 @@ public class ChatClient extends Frame {
         System.exit(0);
       }
     });
-    setSize(400, 300);
+    setSize(600, 800);
 
     Panel topPanel = new Panel();
     topPanel.setLayout(new FlowLayout(FlowLayout.LEFT)); // 기본 레이아웃 관리자를 교체

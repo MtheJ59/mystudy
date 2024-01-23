@@ -2,6 +2,11 @@ import java.util.Scanner;
 
 public class BoardMenu {
 
+  static String title;
+  static String content;
+  static String writer;
+  static String createdDate;
+
   static void excute() {
     printBoardMenu();
     while (true) {
@@ -42,10 +47,15 @@ public class BoardMenu {
 
   static void add() {
     System.out.println("게시글 등록:");
-    System.out.println("제목:");
-    System.out.println("내용:");
-    System.out.println("작성자:");
-    System.out.println("작성일:");
+    title = Prompt.input("제목:");
+    content = Prompt.input("내용:");
+    writer = Prompt.input("작성자:");
+    createdDate = Prompt.input("작성일:");
+  }
+
+  static void view() {
+    System.out.println("게시글 조회:");
+    System.out.printf("제목: %s\n", title);
   }
 
 }
