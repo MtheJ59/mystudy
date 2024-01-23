@@ -20,7 +20,7 @@ public class Exam0170 {
 
 // JVM의 스레드 계층도:
 // system(TG)
-// => Reference Handler(T)
+// => Reference Handler(T) => 인스턴스 레퍼런트 핸들러이다.
 // => Finalizer(T)
 // => Signal Dispatcher(T)
 // => Attach Listener(T)

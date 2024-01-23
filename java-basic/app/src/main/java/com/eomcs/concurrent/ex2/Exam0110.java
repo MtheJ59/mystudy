@@ -9,7 +9,7 @@ public class Exam0110 {
     // 확인해보자!
 
     // 이 순간 실행 중인 흐름이 무엇인지 알고 싶다면?
-    Thread t = Thread.currentThread();
+    Thread t = Thread.currentThread(); // 현재 주소의 값을 리턴
 
     System.out.println("실행 흐름명 = " + t.getName());
 

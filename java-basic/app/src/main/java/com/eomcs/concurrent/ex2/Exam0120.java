@@ -8,7 +8,7 @@ public class Exam0120 {
 
     // 스레드는 그룹에 소속되기도 한다.
     // 현재 스레드의 소속 그룹을 알고 싶다면?
-    ThreadGroup group = main.getThreadGroup();
+    ThreadGroup group = main.getThreadGroup(); // 이 스레드가 소속된 그룹 정보를 리턴
     System.out.println("그룹명 = " + group.getName());
 
     // main() 메서드를 호출하는 스레드는 "main" 스레드이고,
