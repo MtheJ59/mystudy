@@ -2,9 +2,7 @@ import java.util.Scanner;
 
 public class AssigmentMenu {
 
-  static String title;
-  static String content;
-  static String deadline;
+  static Assigment assigment = new Assigment();
 
   static void printMenu() {
     System.out.println("[과제]");
@@ -31,7 +29,7 @@ public class AssigmentMenu {
           modify();
           break;
         case "4":
-          System.out.println("삭제입니다.");
+          delete();
           break;
         case "0":
           return;
@@ -46,30 +44,30 @@ public class AssigmentMenu {
 
   static void add() {
     System.out.println("과제 등록:");
-    title = Prompt.input("과제명? ");
-    content = Prompt.input("내용? ");
-    deadline = Prompt.input("제출 마감일? ");
+    assigment.title = Prompt.input("과제명? ");
+    assigment.content = Prompt.input("내용? ");
+    assigment.deadline = Prompt.input("제출 마감일? ");
   }
 
   static void view() {
     System.out.println("과제 조회:");
-    System.out.printf("과제명: %s\n", title);
-    System.out.printf("내용: %s\n", content);
-    System.out.printf("제출 마감일: %s\n", deadline);
+    System.out.printf("과제명: %s\n", assigment.title);
+    System.out.printf("내용: %s\n", assigment.content);
+    System.out.printf("제출 마감일: %s\n", assigment.deadline);
   }
 
   static void modify() {
     System.out.println("과제 변경:");
-    System.out.printf("과제명: %s\n", title);
-    System.out.printf("내용: %s\n", content);
-    System.out.printf("제출 마감일: %s\n", deadline);
+    System.out.printf("과제명(%s)? ", assigment.title);
+    System.out.printf("내용(%s)? ", assigment.content);
+    System.out.printf("제출 마감일(%s)? ", assigment.deadline);
   }
 
   static void delete() {
     System.out.println("과제 삭제:");
-    title = "";
-    content = "";
-    deadline = "";
+    assigment.title = "";
+    assigment.content = "";
+    assigment.deadline = "";
   }
 
 }
