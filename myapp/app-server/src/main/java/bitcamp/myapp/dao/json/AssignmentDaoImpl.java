@@ -44,7 +44,6 @@ public class AssignmentDaoImpl extends AbstractDao<Assignment> implements Assign
     if (index == -1) {
       return null;
     }
-
     return list.get(index);
   }
 
