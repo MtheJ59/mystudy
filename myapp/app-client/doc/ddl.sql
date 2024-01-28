@@ -1,4 +1,5 @@
 -- DDL(Data Definition Language)
+-- database --> table --> boards , assignment , member
 
 create table boards(
   board_no int primary key auto_increment,
