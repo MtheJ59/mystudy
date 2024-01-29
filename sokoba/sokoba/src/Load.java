@@ -1,24 +1,15 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.util.Scanner;
 
 public class Load {
 
-  public static void run() {
+static String commend;
 
-    String filePath = "map1.txt";
+  public static void main(String[] args) {
+Scanner sc = new Scanner(System.in);
 
-    try {
-      FileReader fileReader = new FileReader(filePath);
-      BufferedReader bufferedReader = new BufferedReader(fileReader);
+commend = sc.nextLine();
+System.out.print("commend");
 
-      String line;
-      while ((line = bufferedReader.readLine()) != null) {
-        System.out.println(line);
-      }
-
-      bufferedReader.close();
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
   }
+
 }

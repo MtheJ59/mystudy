@@ -1,3 +1,4 @@
+import dao.Map1;
 import java.util.Scanner;
 
 public class Main {
@@ -15,10 +16,11 @@ public class Main {
   }
 
   public static void mapRun() {
-    Load.run();
+    Map1.run();
   }
 
   public static void main(String[] args) {
+    // 가로 22 세로 11
     SokobanGame();
     System.out.println();
     mapRun();

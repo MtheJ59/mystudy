@@ -51,11 +51,13 @@ public class ClientApp {
   void prepareDatabase() {
     try {
       // JVM이 JDBC 드라이버 파일(.jar)에 설정된대로 자동으로 처리한다.
+      // 생략 가능!
 //      Driver driver = new com.mysql.jdbc.Driver();
 //      DriverManager.registerDriver(driver);
 
       Connection con = DriverManager.getConnection(
-          "jdbc:mysql://localhost/medb", "medb", "Bitcamp!@#123");
+          "jdbc:mysql://localhost/studydb", "study", "Bitcamp!@#123");
+
       boardDao = new BoardDaoImpl(con, 1);
       greetingDao = new BoardDaoImpl(con, 2);
       assignmentDao = new AssignmentDaoImpl(con);
