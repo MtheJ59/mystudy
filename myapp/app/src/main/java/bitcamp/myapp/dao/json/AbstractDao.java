@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.lang.reflect.ParameterizedType;
@@ -42,6 +43,8 @@ public abstract class AbstractDao<T> {
           TypeToken.getParameterized(ArrayList.class, dataType));
 
     } catch (Exception e) {
+      File file = new File(filepath);
+      System.out.println("Absolute Path: " + file.getAbsolutePath());
       list = new ArrayList<>();
       throw new DaoException("데이터 로딩 오류!", e);
     }

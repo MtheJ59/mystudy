@@ -18,8 +18,8 @@ public class Main {
     StringTokenizer st;
 
     for (int i = 1; i <= T; i++) {
-      int A = Integer.parseInt(br.readLine());
-      int B = Integer.parseInt(br.readLine());
+      int A = Integer.parseInt();
+      int B = Integer.parseInt();
 
       System.out.println(A + B);
     }

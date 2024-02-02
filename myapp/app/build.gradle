@@ -23,7 +23,8 @@ java {
 }
 
 application {
-    mainClass = 'bitcamp.myapp.App'
+    mainClass = 'cook.myapp.App'
+//    mainClass = 'bitcamp.myapp.App'
 }
 
 tasks.named('test') {
