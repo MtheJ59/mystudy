@@ -4,30 +4,43 @@ import java.io.Serializable;
 
 public class Employee implements Serializable {
 
-  private int name;
+  private int no;
+  private String name;
   private String email;
-  private int tel;
-  private int jumin;
-  private int joinDate;
-  private int addr;
+  private String tel;
+  private String jumin;
+  private String joinDate;
+  private String addr;
+  private  String depm;
 
   @Override
   public String toString() {
     return "Employee{" +
-        "name=" + name +
+            "no=" + no +
+        ", name='" + name + '\'' +
         ", email='" + email + '\'' +
         ", tel='" + tel + '\'' +
         ", jumin='" + jumin + '\'' +
-        ", joinDate='" + jumin + '\'' +
-        ", addr=" + addr +
+        ", joinDate='" + joinDate + '\'' +
+        ", addr='" + addr + '\'' +
+        ", depm=" + depm +
         '}';
   }
 
-  public int getName() {
+
+  public int getNo() {
+    return no;
+  }
+
+  public void setNo(int no) {
+    this.no = no;
+  }
+
+  public String getName() {
     return name;
   }
 
-  public void setName(int name) {
+  public void setName(String name) {
     this.name = name;
   }
 
@@ -39,35 +52,43 @@ public class Employee implements Serializable {
     this.email = email;
   }
 
-  public int getTel() {
+  public String getTel() {
     return tel;
   }
 
-  public void setTel(int tel) {
+  public void setTel(String tel) {
     this.tel = tel;
   }
 
-  public int getJumin() {
+  public String getJumin() {
     return jumin;
   }
 
-  public void setJumin(int jumin) {
+  public void setJumin(String jumin) {
     this.jumin = jumin;
   }
 
-  public int getJoinDate() {
+  public String getJoinDate() {
     return joinDate;
   }
 
-  public void setJoinDate(int joinDate) {
+  public void setJoinDate(String joinDate) {
     this.joinDate = joinDate;
   }
 
-  public int getAddr() {
+  public String getAddr() {
     return addr;
   }
 
-  public void setAddr(int addr) {
+  public void setAddr(String addr) {
     this.addr = addr;
+  }
+
+  public String getDepm() {
+    return depm;
+  }
+
+  public void setDepm(String depm) {
+    this.depm = depm;
   }
 }
