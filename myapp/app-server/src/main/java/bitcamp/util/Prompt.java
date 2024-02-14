@@ -91,5 +91,4 @@ public class Prompt implements AutoCloseable {
   public String getFullPath() {
     return String.join("/", breadcrumb.toArray(new String[0]));
   }
-
 }

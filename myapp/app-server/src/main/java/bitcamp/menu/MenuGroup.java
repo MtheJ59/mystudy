@@ -25,7 +25,6 @@ public class MenuGroup extends AbstractMenu {
     this.printMenu(prompt);
 
     while (true) {
-
       String input = prompt.input("%s>", prompt.getFullPath());
 
       if (input.equals("menu")) {

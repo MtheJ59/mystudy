@@ -3,31 +3,24 @@ package bitcamp.myapp.handler.member;
 import bitcamp.menu.AbstractMenuHandler;
 import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.vo.Member;
-import bitcamp.util.DBConnectionPool;
 import bitcamp.util.Prompt;
-import java.sql.Connection;
 
 public class MemberModifyHandler extends AbstractMenuHandler {
 
-  private DBConnectionPool connectionPool;
   private MemberDao memberDao;
 
-  public MemberModifyHandler(DBConnectionPool connectionPool, MemberDao memberDao) {
-    this.connectionPool = connectionPool;
+  public MemberModifyHandler(MemberDao memberDao) {
     this.memberDao = memberDao;
   }
 
   @Override
   protected void action(Prompt prompt) {
-    Connection con = null;
     try {
-      con = connectionPool.getConnection();
-
       int no = prompt.inputInt("번호? ");
 
       Member old = memberDao.findBy(no);
       if (old == null) {
-        prompt.println("회원 번호가 유효하지 않습니다!");
+        System.out.println("회원 번호가 유효하지 않습니다!");
         return;
       }
 
@@ -42,10 +35,7 @@ public class MemberModifyHandler extends AbstractMenuHandler {
       prompt.println("회원을 변경했습니다.");
 
     } catch (Exception e) {
-      prompt.println("삭제 오류!");
-
-    } finally {
-      connectionPool.returnConnection(con);
+      prompt.println("변경 오류!");
     }
   }
 }
