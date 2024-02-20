@@ -1,4 +1,4 @@
-package exstudy;
+package exstudy.util;
 
 import java.util.Scanner;
 

@@ -1,5 +1,8 @@
-package exstudy;
+package exstudy.myapp;
 
+
+import exstudy.myapp.vo.Board;
+import exstudy.util.Prompt;
 
 public class BoardMenu {
 
@@ -25,6 +28,9 @@ public class BoardMenu {
         case "4" :
           delete();
           break;
+        case "5" :
+          list();
+          break;
         case "0" :
           return;
         case "menu" :
@@ -42,6 +48,7 @@ public class BoardMenu {
     System.out.println("2. 조회");
     System.out.println("3. 변경");
     System.out.println("4. 삭제");
+    System.out.println("5. 목록");
     System.out.println("0. 이전");
   }
 

@@ -1,4 +1,4 @@
-package exstudy;
+package exstudy.myapp.vo;
 
 public class Board {
 
