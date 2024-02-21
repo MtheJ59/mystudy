@@ -68,7 +68,7 @@ public class MenuGroup implements Menu {
     }
   }
 
-  public void indexOf(Menu menu) {
+  int indexOf(Menu menu) {
     for (int i = 0; i < menuSize; i++) {
       if (menu == this.menus[i]) {
         return i;
