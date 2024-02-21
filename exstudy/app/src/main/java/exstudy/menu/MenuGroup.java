@@ -30,11 +30,11 @@ public class MenuGroup implements Menu {
         System.out.println("번호가 옳지 않습니다.");
         continue;
       }
-      this.menus[menuSize - 1].execute(prompt);
+      this.menus[menuNo - 1].execute(prompt);
     }
   }
 
-  void printMenu() {
+  private void printMenu() {
     System.out.printf("[%s]\n", this.title);
     for (int i = 0; i < menuSize; i++) {
       System.out.printf("%d. %s\n", (i + 1), menus[i].getTitle());
@@ -66,6 +66,11 @@ public class MenuGroup implements Menu {
     if (index == -1) {
       return;
     }
+
+    for (int i = index; i < (this.menuSize - 1); i++) {
+      this.menus[i] = this.menus[i + 1];
+    }
+    this.menus[--this.menuSize] = null;
   }
 
   int indexOf(Menu menu) {
