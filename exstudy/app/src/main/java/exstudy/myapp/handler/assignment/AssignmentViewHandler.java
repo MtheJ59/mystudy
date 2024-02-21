@@ -1,4 +1,4 @@
-package exstudy.myapp.assignment;
+package exstudy.myapp.handler.assignment;
 
 import exstudy.menu.Menu;
 import exstudy.menu.MenuHandler;

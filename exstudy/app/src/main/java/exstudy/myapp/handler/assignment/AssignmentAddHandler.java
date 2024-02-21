@@ -1,4 +1,4 @@
-package exstudy.myapp.assignment;
+package exstudy.myapp.handler.assignment;
 
 import exstudy.menu.Menu;
 import exstudy.menu.MenuHandler;
@@ -18,7 +18,7 @@ AssignmentRepository assignmentRepository;
 
   @Override
   public void action(Menu menu) {
-    System.out.printf(AnsiEscape.ANSI_BOLD + "%s\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
+    System.out.printf(AnsiEscape.ANSI_BOLD + "[%s]\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
 
     if (this.assignmentRepository.length == this.assignmentRepository.assignments.length) {
       int oldSize = this.assignmentRepository.assignments.length;

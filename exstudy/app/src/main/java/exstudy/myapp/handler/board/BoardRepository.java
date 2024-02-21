@@ -1,4 +1,4 @@
-package exstudy.myapp.board;
+package exstudy.myapp.handler.board;
 
 import exstudy.myapp.vo.Board;
 

@@ -1,4 +1,4 @@
-package exstudy.myapp.member;
+package exstudy.myapp.handler.member;
 
 import exstudy.myapp.vo.Member;
 

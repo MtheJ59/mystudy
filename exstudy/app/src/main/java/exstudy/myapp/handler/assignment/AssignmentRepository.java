@@ -1,4 +1,4 @@
-package exstudy.myapp.assignment;
+package exstudy.myapp.handler.assignment;
 
 import exstudy.myapp.vo.Assignment;
 

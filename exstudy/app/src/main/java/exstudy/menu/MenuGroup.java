@@ -16,7 +16,7 @@ public class MenuGroup implements Menu {
   public void execute(Prompt prompt) {
     this.printMenu();
     while(true) {
-      String input = prompt.input("%s\n", this.title);
+      String input = prompt.input("%s> ", this.title);
 
       if (input.equals("menu")) {
         this.printMenu();
@@ -37,7 +37,7 @@ public class MenuGroup implements Menu {
   void printMenu() {
     System.out.printf("[%s]\n", this.title);
     for (int i = 0; i < menuSize; i++) {
-      System.out.printf("%d. %s\n", menus[i], getTitle());
+      System.out.printf("%d. %s\n", (i + 1), menus[i].getTitle());
     }
     System.out.printf("0. %s\n", "이전");
   }

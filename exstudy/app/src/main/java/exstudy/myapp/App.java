@@ -1,26 +1,23 @@
 package exstudy.myapp;
 
-import exstudy.menu.BoardMenu;
-import exstudy.menu.HelpMenu;
-import exstudy.menu.MainMenu;
-import exstudy.menu.MemberMenu;
 import exstudy.menu.MenuGroup;
 import exstudy.menu.MenuItem;
-import exstudy.myapp.assignment.AssignmentAddHandler;
-import exstudy.myapp.assignment.AssignmentDeleteHandler;
-import exstudy.myapp.assignment.AssignmentListHandler;
-import exstudy.myapp.assignment.AssignmentModifyHandler;
-import exstudy.myapp.assignment.AssignmentRepository;
-import exstudy.myapp.assignment.AssignmentViewHandler;
+import exstudy.myapp.handler.HelpHandler;
+import exstudy.myapp.handler.assignment.*;
+import exstudy.myapp.handler.board.*;
+import exstudy.myapp.handler.member.*;
 import exstudy.util.Prompt;
 
 public class App {
 
     public static void main(String[] args) {
     Prompt prompt = new Prompt(System.in);
-    new MainMenu(prompt).execute();
+//    new MainMenu(prompt).execute();
 
         AssignmentRepository assignmentRepository = new AssignmentRepository();
+        BoardRepository boardRepository = new BoardRepository();
+        BoardRepository greetingRepository = new BoardRepository();
+        MemberRepository memberRepository = new MemberRepository();
 
         MenuGroup mainMenu = new MenuGroup("메인");
 
@@ -32,13 +29,33 @@ public class App {
         assignmentMenu.add(new MenuItem("목록", new AssignmentListHandler(assignmentRepository)));
         mainMenu.add(assignmentMenu);
 
-        BoardMenu boardMenu = new BoardMenu("게시판", this.prompt);
-        BoardMenu greetingMenu = new BoardMenu("가입인사", this.prompt);
-        MemberMenu memberMenu = new MemberMenu("회원", this.prompt);
-        HelpMenu helpMenu = new HelpMenu("도움말", this.prompt);
+        MenuGroup boardMenu = new MenuGroup("게시판");
+        boardMenu.add(new MenuItem("등록", new BoardAddHandler(prompt, boardRepository)));
+        boardMenu.add(new MenuItem("조회", new BoardViewHandler(prompt, boardRepository)));
+        boardMenu.add(new MenuItem("변경", new BoardModifyHandler(prompt, boardRepository)));
+        boardMenu.add(new MenuItem("삭제", new BoardDeleteHandler(prompt, boardRepository)));
+        boardMenu.add(new MenuItem("목록", new BoardListHandler(boardRepository)));
+        mainMenu.add(boardMenu);
+
+        MenuGroup greetingMenu = new MenuGroup("가입인사");
+        greetingMenu.add(new MenuItem("등록", new BoardAddHandler(prompt, greetingRepository)));
+        greetingMenu.add(new MenuItem("조회", new BoardViewHandler(prompt, greetingRepository)));
+        greetingMenu.add(new MenuItem("변경", new BoardModifyHandler(prompt, greetingRepository)));
+        greetingMenu.add(new MenuItem("삭제", new BoardDeleteHandler(prompt, greetingRepository)));
+        greetingMenu.add(new MenuItem("목록", new BoardListHandler(greetingRepository)));
+        mainMenu.add(greetingMenu);
+
+        MenuGroup memberMenu = new MenuGroup("회원");
+        memberMenu.add(new MenuItem("등록", new MemberAddHandler(prompt, memberRepository)));
+        memberMenu.add(new MenuItem("조회", new MemberViewHandler(prompt, memberRepository)));
+        memberMenu.add(new MenuItem("변경", new MemberModifyHandler(prompt, memberRepository)));
+        memberMenu.add(new MenuItem("삭제", new MemberDeleteHandler(prompt, memberRepository)));
+        memberMenu.add(new MenuItem("목록", new MemberListHandler(memberRepository)));
+        mainMenu.add(memberMenu);
+
+        mainMenu.add(new MenuItem("도움말", new HelpHandler()));
 
         mainMenu.execute(prompt);
-
 
     prompt.close();
     }

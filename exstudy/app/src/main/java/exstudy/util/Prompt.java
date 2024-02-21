@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Prompt {
 
-  static Scanner keyIn;
+  Scanner keyIn;
 
   public Prompt(InputStream in) {
     keyIn = new Scanner(in);
