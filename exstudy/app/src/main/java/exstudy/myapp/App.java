@@ -6,6 +6,7 @@ import exstudy.myapp.handler.HelpHandler;
 import exstudy.myapp.handler.assignment.*;
 import exstudy.myapp.handler.board.*;
 import exstudy.myapp.handler.member.*;
+import exstudy.util.ObjectRepository;
 import exstudy.util.Prompt;
 
 public class App {
@@ -14,10 +15,10 @@ public class App {
     Prompt prompt = new Prompt(System.in);
 //    new MainMenu(prompt).execute();
 
-        AssignmentRepository assignmentRepository = new AssignmentRepository();
-        BoardRepository boardRepository = new BoardRepository();
-        BoardRepository greetingRepository = new BoardRepository();
-        MemberRepository memberRepository = new MemberRepository();
+        ObjectRepository assignmentRepository = new ObjectRepository();
+        ObjectRepository boardRepository = new ObjectRepository();
+        ObjectRepository greetingRepository = new ObjectRepository();
+        ObjectRepository memberRepository = new ObjectRepository();
 
         MenuGroup mainMenu = new MenuGroup("메인");
 

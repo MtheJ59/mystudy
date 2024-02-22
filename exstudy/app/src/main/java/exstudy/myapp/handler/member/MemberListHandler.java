@@ -4,13 +4,14 @@ import exstudy.menu.Menu;
 import exstudy.menu.MenuHandler;
 import exstudy.myapp.vo.Member;
 import exstudy.util.AnsiEscape;
+import exstudy.util.ObjectRepository;
 
 public class MemberListHandler implements MenuHandler {
 
-    MemberRepository memberRepository;
+    ObjectRepository objectRepository;
 
-    public MemberListHandler(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
+    public MemberListHandler(ObjectRepository objectRepository) {
+        this.objectRepository = objectRepository;
     }
 
     @Override
@@ -18,8 +19,8 @@ public class MemberListHandler implements MenuHandler {
         System.out.printf(AnsiEscape.ANSI_BOLD + "%s\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
         System.out.printf("%-20s\t%10s\t%s\n", "Email", "Name", "CreatedDate");
 
-        for (int i = 0; i < this.memberRepository.length; i++) {
-            Member member = this.memberRepository.members[i];
+        for (Object object : this.objectRepository.toArray()) {
+            Member member = (Member) object;
             System.out.printf("%-20s\t%10s\t%s\n", member.email, member.name, member.createdDate);
         }
     }

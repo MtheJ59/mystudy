@@ -4,13 +4,14 @@ import exstudy.menu.Menu;
 import exstudy.menu.MenuHandler;
 import exstudy.myapp.vo.Assignment;
 import exstudy.util.AnsiEscape;
+import exstudy.util.ObjectRepository;
 
 public class AssignmentListHandler implements MenuHandler {
 
-  AssignmentRepository assignmentRepository;
+  ObjectRepository objectRepository;
 
-  public AssignmentListHandler(AssignmentRepository assignmentRepository) {
-    this.assignmentRepository = assignmentRepository;
+  public AssignmentListHandler(ObjectRepository objectRepository) {
+    this.objectRepository = objectRepository;
   }
 
   @Override
@@ -18,8 +19,8 @@ public class AssignmentListHandler implements MenuHandler {
     System.out.printf(AnsiEscape.ANSI_BOLD + "%s\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
     System.out.printf("%-20s\t%s\n", "Title", "Deadline");
 
-    for (int i = 0; i < this.assignmentRepository.length; i++) {
-      Assignment assignment = this.assignmentRepository.assignments[i];
+    for (Object object : this.objectRepository.toArray()) {
+      Assignment assignment = (Assignment) object;
       System.out.printf("%-20s\t%s\n", assignment.title, assignment.deadline);
     }
   }
