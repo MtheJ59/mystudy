@@ -21,7 +21,7 @@ public class MemberAddServlet extends HttpServlet {
   }
 
   @Override
-  protected void service(HttpServletRequest request, HttpServletResponse response)
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
     response.setContentType("text/html;charset=UTF-8");
@@ -43,7 +43,9 @@ public class MemberAddServlet extends HttpServlet {
       member.setPassword(request.getParameter("password"));
 
       memberDao.add(member);
-      out.println("<p>회원을 등록했습니다.</p>");
+
+      response.sendRedirect("list");
+      return;
 
     } catch (Exception e) {
       out.println("<p>회원등록 오류!</p>");
