@@ -2,23 +2,25 @@ package exstudy.myapp.handler.assignment;
 
 import exstudy.menu.Menu;
 import exstudy.menu.MenuHandler;
+import exstudy.myapp.vo.Assignment;
 import exstudy.util.AnsiEscape;
-import exstudy.util.ObjectRepository;
 import exstudy.util.Prompt;
+
+import java.util.ArrayList;
 
 public class AssignmentDeleteHandler implements MenuHandler {
 
   Prompt prompt;
-  ObjectRepository objectRepository;
+  ArrayList<Assignment> objectRepository;
 
-  public AssignmentDeleteHandler(Prompt prompt, ObjectRepository objectRepository) {
+  public AssignmentDeleteHandler(Prompt prompt, ArrayList<Assignment> objectRepository) {
     this.prompt = prompt;
     this.objectRepository = objectRepository;
   }
 
   @Override
   public void action(Menu menu) {
-    System.out.printf(AnsiEscape.ANSI_BOLD + "%s\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
+    System.out.printf(AnsiEscape.ANSI_BOLD + "[%s]\n" + AnsiEscape.ANSI_CLEAR, menu.getTitle());
 
     int index = this.prompt.inputInt("번호? ");
     if (this.objectRepository.remove(index) == null) {

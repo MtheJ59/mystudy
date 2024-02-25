@@ -4,15 +4,16 @@ import exstudy.menu.Menu;
 import exstudy.menu.MenuHandler;
 import exstudy.myapp.vo.Assignment;
 import exstudy.util.AnsiEscape;
-import exstudy.util.ObjectRepository;
 import exstudy.util.Prompt;
+
+import java.util.ArrayList;
 
 public class AssignmentAddHandler implements MenuHandler {
 
 Prompt prompt;
-  ObjectRepository objectRepository;
+  ArrayList<Assignment> objectRepository;
 
-  public AssignmentAddHandler(Prompt prompt, ObjectRepository objectRepository) {
+  public AssignmentAddHandler(Prompt prompt, ArrayList<Assignment> objectRepository) {
     this.prompt = prompt;
     this.objectRepository = objectRepository;
   }

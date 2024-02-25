@@ -6,8 +6,12 @@ import exstudy.myapp.handler.HelpHandler;
 import exstudy.myapp.handler.assignment.*;
 import exstudy.myapp.handler.board.*;
 import exstudy.myapp.handler.member.*;
-import exstudy.util.ObjectRepository;
+import exstudy.myapp.vo.Assignment;
+import exstudy.myapp.vo.Board;
+import exstudy.myapp.vo.Member;
 import exstudy.util.Prompt;
+
+import java.util.ArrayList;
 
 public class App {
 
@@ -15,10 +19,10 @@ public class App {
     Prompt prompt = new Prompt(System.in);
 //    new MainMenu(prompt).execute();
 
-        ObjectRepository assignmentRepository = new ObjectRepository();
-        ObjectRepository boardRepository = new ObjectRepository();
-        ObjectRepository greetingRepository = new ObjectRepository();
-        ObjectRepository memberRepository = new ObjectRepository();
+        ArrayList<Assignment> assignmentRepository = new ArrayList<>();
+        ArrayList<Board> boardRepository = new ArrayList<>();
+        ArrayList<Board> greetingRepository = new ArrayList<>();
+        ArrayList<Member> memberRepository = new ArrayList<>();
 
         MenuGroup mainMenu = new MenuGroup("메인");
 
