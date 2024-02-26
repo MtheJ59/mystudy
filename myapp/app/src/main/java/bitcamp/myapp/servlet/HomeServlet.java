@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/index.html")
-public class HomeListServlet extends HttpServlet {
+public class HomeServlet extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -26,8 +26,6 @@ public class HomeListServlet extends HttpServlet {
     out.println("</head>");
     out.println("<body>");
 
-//    RequestDispatcher 요청배달자 = request.getRequestDispatcher("/header");
-//    요청배달자.include(request, response);
     request.getRequestDispatcher("/header").include(request, response);
 
     out.println("<h1>과제 관리 시스템</h1>");
