@@ -24,7 +24,7 @@ public class AssignmentAddServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    request.getRequestDispatcher("/assignment/form.jsp").include(request, response);
+    request.getRequestDispatcher("/assignment/form.jsp").forward(request, response);
 
   }
 

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ page import="java.util.List"%>
-<%@ page import="bitcamp.myapp.vo.Member"%>
+<%@ page import="bitcamp.myapp.vo.Board"%>
         <!DOCTYPE html>
         <html lang='en'>
         <head>
@@ -10,33 +10,33 @@
         <body>
 
         <jsp:include page="/header.jsp"></jsp:include>
+<%
+  String title = (String) request.getAttribute("title");
+  int category = (int) request.getAttribute("category");
+%>
 
-        <h1>회원</h1>
-              <a href='/member/add'>새 회원</a>
-              <table border='1'>
-                  <thead>
-                  <tr> <th>번호</th> <th>이름</th> <th>이메일</th> <th>가입일</th> </tr>
-                  </thead>
-                  <tbody>
+             <h1><%=title%></h1>
+                    <a href='/board/add?category=<%=category%>'>새 글</a>
+                    <table border='1'>
+                        <thead>
+                        <tr> <th>번호</th> <th>제목</th> <th>작성자</th> <th>등록일</th> <th>첨부파일</th> </tr>
+                        </thead>
+                        <tbody>
               <%
-              List<Member> list = (List<Member>) request.getAttribute("list");
-              for (Member member : list) {%>
-                <tr>
-                <td><%=member.getNo()%></td>
-                <td>
-              <% if (member.getPhoto() != null) { %>
-                <img src='/upload/<%=member.getPhoto()%>' height='20xp'>
-              <% } else { %>
-               <img src='/img/default-photo.jpeg' height='20xp'>
-              <% } %>
-                <a href='/member/view?no=<%=member.getNo()%>'><%=member.getName()%></a></td>
-                    <td><%=member.getEmail()%></td>
-                    <td><%=member.getCreatedDate()%></td>
-                    
-                    </tr>
-              <%}%>
-                  </tbody>
-              </table>
+                    List<Board> list = (List<Board>) request.getAttribute("list");
+                    for (Board board : list) { %>
+                      <tr>
+                      <td><%=board.getNo()%></td>
+                      <td><a href='/board/view?category=<%=category%>&no=<%=board.getNo()%>'><%=board.getTitle()%></a></td>
+                      <td><%=board.getWriter().getName()%></td>
+                      <td><%=board.getCreatedDate()%></td>
+                      <td><%=board.getFileCount()%></td> </tr>
+              <%      } %>
+              
+                        </tbody>
+                    </table>
+
+
 
         <jsp:include page="/footer.jsp"></jsp:include>
 

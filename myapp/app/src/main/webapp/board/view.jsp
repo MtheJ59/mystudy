@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
-<% page import="bitcamp.myapp.vo.Member"%>
+<%@ page import="bitcamp.myapp.vo.Board"%>
+<%@ page import="java.util.List"%>
+<%@ page import="bitcamp.myapp.vo.AttachedFile"%>
+
         <!DOCTYPE html>
         <html lang='en'>
         <head>
@@ -9,45 +12,47 @@
         <body>
 
         <jsp:include page="/header.jsp"></jsp:include>
-        <% 
-          Member member = (Member) request.getAttribute("member");
+        <%
+          String title = (String) request.getAttribute("title");
+         int category = (int) request.getAttribute("category");
+          Board board = (Board) request.getAttribute("board");
         %>
-
-      <h1>회원</h1>
-      <form action='/member/update' method='post' enctype='multipart/form-data'>
-      <div>
-      <%
-        String photoUrl = null;
-        if (ember.getPhoto() != null) {
-          photoUrl = "/upload/" + member.getPhoto();
-        } else {
-          photoUrl = "/img/default-photo.jpeg";
-        }
-      %>
-          사진: <a href='<%=photoUrl%>'> <img src='<%=photoUrl%>' height='80px'></a><br>
-                <input name='photo' type='file'>
-      </div>
-      <div>
-          번호: <input readonly name='no' type='text' value='<%=member.getNo()%>'>
-      </div>
-      <div>
-      이메일: <input name='email' type='text' value='<%=member.getEmail()%>'>
-      </div>
-      <div>
-      이름: <input name='name' type='text' value='<%=member.getName()%>'>
-      </div>
-      <div>
-        암호: <input name='password' type='password'>
-      </div>
-      <div>
-      <div>
-      가입일: <input readonly type='text' value='<%=member.getCreatedDate()%>'>
-      </div>
-      <div>
-        <button>변경</button>
-      <a href='/member/delete?no=<%member.getN()%>'>[삭제]</a>
-      </div>
-      </form>
+          
+        <h1><%=title%></h1>
+              <form action='/board/update' method='post' enctype='multipart/form-data'>
+              <input name='category' type='hidden' value='<%=category%>'>
+              <div>
+                번호: <input readonly name='no' type='text' value='<%=board.getNo()%>'>
+              </div>
+              <div>
+                제목: <input name='title' type='text' value='<%=board.getTitle()%>'>
+              </div>
+              <div>
+                내용: <textarea name='content'><%=board.getContent()%></textarea>
+              </div>
+              <div>
+                작성자: <input readonly type='text' value='<%=board.getWriter().getName()%>'>
+              </div>
+            <%
+              if (category == 1) { %>
+                <div>
+                  첨부파일: <input multiple name='files' type='file'>
+                  <ul>
+            <%
+                List<AttachedFile> files = (List<AttachedFile>) request.getAttribute("files");
+                for (AttachedFile file : files) { %>
+                  <li><a href='/upload/board/<%=file.getFilePath()%>'><%=file.getFilePath()%></a>
+                  [<a href='/board/file/delete?category=<%=category%>&no=<%=file.getNo()%>'>삭제</a>]</li>
+            <%    } %>
+                  </ul>
+                </div>
+            <%  } %>
+        
+              <div>
+                <button>변경</button>
+                <a href='/board/delete?category=<%=category%>&no=<%=board.getNo()%>'>[삭제]</a>
+              </div>
+              </form>
         <jsp:include page="/footer.jsp"></jsp:include>
 
         </body>

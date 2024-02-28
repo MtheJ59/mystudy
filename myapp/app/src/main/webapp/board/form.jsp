@@ -10,27 +10,32 @@
 
         <jsp:include page="/header.jsp"></jsp:include>
 
-        <h1>과제 관리 시스템</h1>
+        <h1><%=request.getAttribute("title")%></h1>
 
-        <h2>게시글</h2>
+<%
+  String title = (String) request.getAttribute("title");
+  int category = (int) request.getAttribute("category");
+%>
 
-        <form action='/board/add' method='post' enctype='multipart/form-data'>
-          <div>
-                제목: <input name='title' type='text'>
-          </div>
-          <div>
-                내용: <input name='content' type='text'>
-          </div>
-          <div>
-                작성자: <input name='' type=''>
-          </div>
-          <div>
-                사진: <input name='photo' type='file'>
-          </div>
-          <div>
-            <button>등록</button>
-          </div>
-        </form>
+            <form action='/board/add?category=<%=category%>' method='post' enctype='multipart/form-data'>
+            <input name='category' type='hidden' value='<%=category%>'>
+            <div>
+                  제목: <input name='title' type='text'>
+            </div>
+            <div>
+                  내용: <textarea name='content'></textarea>
+            </div>
+        <%
+             if (category == 1) { %>
+              <div>
+                    첨부파일: <input multiple name='files' type='file'>
+              </div>
+           <% } %>
+        
+            <div>
+              <button>등록</button>
+            </div>
+            </form>
 
         <jsp:include page="/footer.jsp"></jsp:include>
 
