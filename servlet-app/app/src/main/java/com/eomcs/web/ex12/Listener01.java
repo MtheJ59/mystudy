@@ -6,7 +6,7 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.ServletRegistration.Dynamic;
 import javax.servlet.annotation.WebListener;
 
-@WebListener 
+@WebListener
 public class Listener01 implements ServletContextListener {
 
   @Override

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--첫번째 줄에는 반드시 xml 선언이 되어야 한다. 첫번째 라인에 적힌 코드는 불변이다! -->
+
+
+<!--PUBLIC 다음으로 "- 이렇게 시작하는데 -는 국가조직이 아닌것으로 +로 시작하면 국가조직이라는 뜻이다.-->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  metadata-complete="false"
+  version="4.0"
+  xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+  <description>
+    애플리케이션 소개
+  </description>
+  <display-name>과제 관리 시스템</display-name>
+
+  <filter>
+    <filter-class>bitcamp.myapp.filter.CharacterEncodingFilter</filter-class>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+</web-app>
