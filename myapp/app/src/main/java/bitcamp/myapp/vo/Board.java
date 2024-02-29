@@ -17,7 +17,6 @@ public class Board implements Serializable {
   private List<AttachedFile> files;
   private int fileCount;
 
-
   @Override
   public String toString() {
     return "Board{" +

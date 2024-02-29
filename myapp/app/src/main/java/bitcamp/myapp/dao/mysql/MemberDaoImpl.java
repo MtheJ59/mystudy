@@ -112,13 +112,14 @@ public class MemberDaoImpl implements MemberDao {
       pstmt.setString(1, member.getEmail());
       pstmt.setString(2, member.getName());
       pstmt.setString(3, member.getPhoto());
+
       if (member.getPassword().length() == 0) {
         pstmt.setInt(4, member.getNo());
       } else {
         pstmt.setString(4, member.getPassword());
         pstmt.setInt(5, member.getNo());
       }
-
+      
       return pstmt.executeUpdate();
 
     } catch (Exception e) {
