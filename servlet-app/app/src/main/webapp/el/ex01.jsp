@@ -18,12 +18,18 @@
 - OGNL(Object Graph Navigation Language)?
   객체의 프로퍼티 값을 가리킬 때 사용하는 문법이다.
   파일의 경로처럼 객체에 포함된 객체를 탐색하여 값을 쉽게 조회할 수 있다.
+
+- 객체 그래프 (Object Graph)
+  - 객체들 간에 관계를 나타내는 그래프 구조다.
+  - 객체 간의 다양한 관계를 표현할 수 있다.
+  - 객체 그래프를 사용하면 데이터를 계층적으로 구조화하고 관리할 수 있으며,
+    객체 간의 연결성을 효율적으로 관리할 수 있다.
   
 - 문법
     ${ 객체명.프로퍼티명.프로퍼티명.프로퍼티명 }
     ${ 객체명["프로퍼티명"]["프로퍼티명"]["프로퍼티명"] }
     
-- EL에서 사용할 수 있는 객체?
+- EL에서 사용할 수 있는 빌트인 객체?
     pageContext 
       - JSP의 PageContext 객체
     servletContext 
@@ -37,7 +43,7 @@
     request 
       - ${ pageContext.request.프로퍼티명 }
     response
-    
+      - ${ pageContext.response.프로퍼티명 }
     param 
       - ${ param.파라미터명 }
         => request.getParameter("파라미터명");

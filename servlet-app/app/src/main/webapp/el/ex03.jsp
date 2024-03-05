@@ -13,6 +13,7 @@
 <pre>
 - 보관소의 이름을 지정하지 않으면 다음 순서로 값을 찾는다.
     pageScope ==> requestScope ==> sessionScope ==> applicationScope
+    jsp콘텍스트 보관소, 서블릿 리퀘스트 콘텍스트 보관소, Http세션 콘텍스트 보관소, 서블릿 콘텍스트 보관소
     
 - 보관소에 저장된 값을 찾지 못하면 빈 문자열을 리턴한다.
 </pre> 
@@ -24,7 +25,7 @@ application.removeAttribute("name");
 //pageContext.setAttribute("name", "홍길동");
 //request.setAttribute("name", "임꺽정");
 //session.setAttribute("name", "유관순");
-application.setAttribute("name", "안중근");
+//application.setAttribute("name", "안중근");
 %>
 
 <h2>보관소에서 값 꺼내기 : ${name}</h2> 

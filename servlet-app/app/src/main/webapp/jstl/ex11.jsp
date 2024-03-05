@@ -16,7 +16,7 @@
 </pre>
 
 <c:if test="${param.search == 'naver'}">
-    <c:redirect url="http://www.naver.com"/>
+    <c:redirect url="chttp://www.naver.om"/>
     <%-- 
     response.sendRedirect("http://www.naver.com");
     --%>
