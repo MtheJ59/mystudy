@@ -5,26 +5,30 @@ import bitcamp.myapp.dao.DaoException;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.DBConnectionPool;
+import org.springframework.stereotype.Component;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class BoardDaoImpl implements BoardDao {
 
   DBConnectionPool connectionPool;
 
   public BoardDaoImpl(DBConnectionPool connectionPool) {
+    System.out.println("BoardDaoImpl() 호출됨!");
     this.connectionPool = connectionPool;
   }
 
   @Override
   public void add(Board board) {
     try (Connection con = connectionPool.getConnection();
-        PreparedStatement pstmt = con.prepareStatement(
-            "insert into boards(title,content,writer,category) values(?,?,?,?)",
-            PreparedStatement.RETURN_GENERATED_KEYS)) {
+         PreparedStatement pstmt = con.prepareStatement(
+                 "insert into boards(title,content,writer,category) values(?,?,?,?)",
+                 PreparedStatement.RETURN_GENERATED_KEYS)) {
 
       pstmt.setString(1, board.getTitle());
       pstmt.setString(2, board.getContent());
@@ -48,8 +52,8 @@ public class BoardDaoImpl implements BoardDao {
   @Override
   public int delete(int no) {
     try (Connection con = connectionPool.getConnection();
-        PreparedStatement pstmt = con.prepareStatement(
-            "delete from boards where board_no=?")) {
+         PreparedStatement pstmt = con.prepareStatement(
+                 "delete from boards where board_no=?")) {
       pstmt.setInt(1, no);
       return pstmt.executeUpdate();
 
@@ -61,23 +65,23 @@ public class BoardDaoImpl implements BoardDao {
   @Override
   public List<Board> findAll(int category) {
     try (Connection con = connectionPool.getConnection();
-        PreparedStatement pstmt = con.prepareStatement(
-            "select\n"
-                + "  b.board_no,\n"
-                + "  b.title,\n"
-                + "  b.created_date,\n"
-                + "  count(file_no) file_count,\n"
-                + "  m.member_no,\n"
-                + "  m.name\n"
-                + "from\n"
-                + "  boards b left outer join board_files bf on b.board_no=bf.board_no\n"
-                + "  inner join members m on b.writer=m.member_no\n"
-                + "where\n"
-                + "  b.category=?\n"
-                + "group by\n"
-                + "  board_no\n"
-                + "order by\n"
-                + "  board_no desc")) {
+         PreparedStatement pstmt = con.prepareStatement(
+                 "select\n"
+                         + "  b.board_no,\n"
+                         + "  b.title,\n"
+                         + "  b.created_date,\n"
+                         + "  count(file_no) file_count,\n"
+                         + "  m.member_no,\n"
+                         + "  m.name\n"
+                         + "from\n"
+                         + "  boards b left outer join board_files bf on b.board_no=bf.board_no\n"
+                         + "  inner join members m on b.writer=m.member_no\n"
+                         + "where\n"
+                         + "  b.category=?\n"
+                         + "group by\n"
+                         + "  board_no\n"
+                         + "order by\n"
+                         + "  board_no desc")) {
 
       pstmt.setInt(1, category);
 
@@ -111,17 +115,17 @@ public class BoardDaoImpl implements BoardDao {
   @Override
   public Board findBy(int no) {
     try (Connection con = connectionPool.getConnection();
-        PreparedStatement pstmt = con.prepareStatement(
-            "select"
-                + "  b.board_no,\n"
-                + "  b.title,\n"
-                + "  b.content,"
-                + "  b.created_date,\n"
-                + "  m.member_no,\n"
-                + "  m.name\n"
-                + " from "
-                + "  boards b inner join members m on b.writer=m.member_no\n"
-                + " where board_no=?")) {
+         PreparedStatement pstmt = con.prepareStatement(
+                 "select"
+                         + "  b.board_no,\n"
+                         + "  b.title,\n"
+                         + "  b.content,"
+                         + "  b.created_date,\n"
+                         + "  m.member_no,\n"
+                         + "  m.name\n"
+                         + " from "
+                         + "  boards b inner join members m on b.writer=m.member_no\n"
+                         + " where board_no=?")) {
 
       pstmt.setInt(1, no);
 
@@ -151,8 +155,8 @@ public class BoardDaoImpl implements BoardDao {
   @Override
   public int update(Board board) {
     try (Connection con = connectionPool.getConnection();
-        PreparedStatement pstmt = con.prepareStatement(
-            "update boards set title=?, content=? where board_no=?")) {
+         PreparedStatement pstmt = con.prepareStatement(
+                 "update boards set title=?, content=? where board_no=?")) {
 
       pstmt.setString(1, board.getTitle());
       pstmt.setString(2, board.getContent());
