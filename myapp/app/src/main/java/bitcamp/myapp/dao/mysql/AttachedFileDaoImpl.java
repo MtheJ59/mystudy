@@ -4,13 +4,12 @@ import bitcamp.myapp.dao.AttachedFileDao;
 import bitcamp.myapp.dao.DaoException;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.util.DBConnectionPool;
-import org.springframework.stereotype.Component;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Component;
 
 @Component
 public class AttachedFileDaoImpl implements AttachedFileDao {
@@ -25,8 +24,8 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
   @Override
   public void add(AttachedFile file) {
     try (Connection con = connectionPool.getConnection();
-         PreparedStatement pstmt = con.prepareStatement(
-                 "insert into board_files(file_path,board_no) values(?,?)")) {
+        PreparedStatement pstmt = con.prepareStatement(
+            "insert into board_files(file_path,board_no) values(?,?)")) {
 
       pstmt.setString(1, file.getFilePath());
       pstmt.setInt(2, file.getBoardNo());
@@ -41,8 +40,8 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
   @Override
   public int addAll(List<AttachedFile> files) {
     try (Connection con = connectionPool.getConnection();
-         PreparedStatement pstmt = con.prepareStatement(
-                 "insert into board_files(file_path,board_no) values(?,?)")) {
+        PreparedStatement pstmt = con.prepareStatement(
+            "insert into board_files(file_path,board_no) values(?,?)")) {
 
       for (AttachedFile file : files) {
         pstmt.setString(1, file.getFilePath());
@@ -60,8 +59,8 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
   @Override
   public int delete(int no) {
     try (Connection con = connectionPool.getConnection();
-         PreparedStatement pstmt = con.prepareStatement(
-                 "delete from board_files where file_no=?")) {
+        PreparedStatement pstmt = con.prepareStatement(
+            "delete from board_files where file_no=?")) {
       pstmt.setInt(1, no);
       return pstmt.executeUpdate();
 
@@ -73,8 +72,8 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
   @Override
   public int deleteAll(int boardNo) {
     try (Connection con = connectionPool.getConnection();
-         PreparedStatement pstmt = con.prepareStatement(
-                 "delete from board_files where board_no=?")) {
+        PreparedStatement pstmt = con.prepareStatement(
+            "delete from board_files where board_no=?")) {
       pstmt.setInt(1, boardNo);
       return pstmt.executeUpdate();
 
@@ -86,9 +85,9 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
   @Override
   public List<AttachedFile> findAllByBoardNo(int boardNo) {
     try (Connection con = connectionPool.getConnection();
-         PreparedStatement pstmt = con.prepareStatement(
-                 "select file_no, file_path, board_no"
-                         + " from board_files where board_no=? order by file_no asc")) {
+        PreparedStatement pstmt = con.prepareStatement(
+            "select file_no, file_path, board_no"
+                + " from board_files where board_no=? order by file_no asc")) {
 
       pstmt.setInt(1, boardNo);
 
@@ -115,9 +114,9 @@ public class AttachedFileDaoImpl implements AttachedFileDao {
   @Override
   public AttachedFile findByNo(int no) {
     try (Connection con = connectionPool.getConnection();
-         PreparedStatement pstmt = con.prepareStatement(
-                 "select file_no, file_path, board_no"
-                         + " from board_files where file_no=?")) {
+        PreparedStatement pstmt = con.prepareStatement(
+            "select file_no, file_path, board_no"
+                + " from board_files where file_no=?")) {
       pstmt.setInt(1, no);
       try (ResultSet rs = pstmt.executeQuery()) {
         if (rs.next()) {

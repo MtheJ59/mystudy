@@ -6,33 +6,38 @@ import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.TransactionManager;
-import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
-@Component
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
 public class BoardController {
 
   private TransactionManager txManager;
   private BoardDao boardDao;
   private AttachedFileDao attachedFileDao;
-  private String uploadDir = System.getProperty("board.upload.dir");
+  private String uploadDir;
 
   public BoardController(
           TransactionManager txManager,
           BoardDao boardDao,
-          AttachedFileDao attachedFileDao) {
-
+          AttachedFileDao attachedFileDao,
+          ServletContext sc) {
     System.out.println("BoardController() 호출됨!");
     this.txManager = txManager;
     this.boardDao = boardDao;
     this.attachedFileDao = attachedFileDao;
+    this.uploadDir = sc.getRealPath("/upload/board");
   }
 
   @RequestMapping("/board/form")
@@ -48,7 +53,7 @@ public class BoardController {
   @RequestMapping("/board/add")
   public String add(
           Board board,
-          @RequestParam("files") Part[] files,
+          @RequestParam("attachedFiles") Part[] files,
           HttpSession session,
           Map<String, Object> map) throws Exception {
 
@@ -131,7 +136,7 @@ public class BoardController {
   @RequestMapping("/board/update")
   public String update(
           Board board,
-          @RequestParam("files") Part[] files,
+          @RequestParam("attachedFiles") Part[] files,
           HttpSession session,
           Map<String, Object> map) throws Exception {
 

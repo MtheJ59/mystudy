@@ -1,8 +1,9 @@
 package bitcamp.myapp.controller;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@Component
+@Controller
 public class AboutController {
 
   public AboutController() {
@@ -11,7 +12,7 @@ public class AboutController {
 
   @RequestMapping("/about")
   public String about()
-          throws Exception {
+      throws Exception {
     return "/about.jsp";
   }
 }
