@@ -1,7 +1,7 @@
 package bitcamp.myapp.vo;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 public class Member implements Serializable {
 
@@ -17,13 +17,13 @@ public class Member implements Serializable {
   @Override
   public String toString() {
     return "Member{" +
-        "no=" + no +
-        ", email='" + email + '\'' +
-        ", name='" + name + '\'' +
-        ", password='" + password + '\'' +
-        ", photo='" + photo + '\'' +
-        ", createdDate=" + createdDate +
-        '}';
+            "no=" + no +
+            ", email='" + email + '\'' +
+            ", name='" + name + '\'' +
+            ", password='" + password + '\'' +
+            ", photo='" + photo + '\'' +
+            ", createdDate=" + createdDate +
+            '}';
   }
 
   public String getPhoto() {

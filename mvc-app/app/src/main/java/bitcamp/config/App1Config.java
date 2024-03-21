@@ -1,6 +1,5 @@
 package bitcamp.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
@@ -9,9 +8,9 @@ import org.springframework.web.multipart.support.StandardServletMultipartResolve
     value="bitcamp.app1")
 public class App1Config {
 
-  @Bean
+//  @Bean
   MultipartResolver multipartResolver() {
-    StandardServletMultipartResolver mr = new StandardServletMultipartResolver();
-    return mr;
+    return new StandardServletMultipartResolver();
+    // return
   }
 }
