@@ -4,13 +4,10 @@ import bitcamp.myapp.dao.DaoException;
 import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.vo.Member;
 import bitcamp.util.DBConnectionPool;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.ibatis.session.SqlSession;
@@ -33,8 +30,8 @@ public class MemberDaoImpl implements MemberDao {
   @Override
   public void add(Member member) {
     try (Connection con = connectionPool.getConnection();
-         PreparedStatement pstmt = con.prepareStatement(
-                 "insert into members(email,name,password,photo) values(?,?,sha2(?,256),?)")) {
+        PreparedStatement pstmt = con.prepareStatement(
+            "insert into members(email,name,password,photo) values(?,?,sha2(?,256),?)")) {
       pstmt.setString(1, member.getEmail());
       pstmt.setString(2, member.getName());
       pstmt.setString(3, member.getPassword());
@@ -49,8 +46,8 @@ public class MemberDaoImpl implements MemberDao {
   @Override
   public int delete(int no) {
     try (Connection con = connectionPool.getConnection();
-         PreparedStatement pstmt = con.prepareStatement(
-                 "delete from members where member_no=?")) {
+        PreparedStatement pstmt = con.prepareStatement(
+            "delete from members where member_no=?")) {
       pstmt.setInt(1, no);
       return pstmt.executeUpdate();
 
@@ -69,8 +66,8 @@ public class MemberDaoImpl implements MemberDao {
   @Override
   public Member findBy(int no) {
     try (Connection con = connectionPool.getConnection();
-         PreparedStatement pstmt = con.prepareStatement(
-                 "select member_no, email, name, photo, created_date from members where member_no=?")) {
+        PreparedStatement pstmt = con.prepareStatement(
+            "select member_no, email, name, photo, created_date from members where member_no=?")) {
       pstmt.setInt(1, no);
 
       try (ResultSet rs = pstmt.executeQuery()) {
@@ -101,7 +98,7 @@ public class MemberDaoImpl implements MemberDao {
     }
 
     try (Connection con = connectionPool.getConnection();
-         PreparedStatement pstmt = con.prepareStatement(sql)) {
+        PreparedStatement pstmt = con.prepareStatement(sql)) {
       pstmt.setString(1, member.getEmail());
       pstmt.setString(2, member.getName());
       pstmt.setString(3, member.getPhoto());
@@ -123,8 +120,8 @@ public class MemberDaoImpl implements MemberDao {
   @Override
   public Member findByEmailAndPassword(String email, String password) {
     try (Connection con = connectionPool.getConnection();
-         PreparedStatement pstmt = con.prepareStatement(
-                 "select member_no, email, name, created_date from members where email=? and password=sha2(?,256)")) {
+        PreparedStatement pstmt = con.prepareStatement(
+            "select member_no, email, name, created_date from members where email=? and password=sha2(?,256)")) {
       pstmt.setString(1, email);
       pstmt.setString(2, password);
 

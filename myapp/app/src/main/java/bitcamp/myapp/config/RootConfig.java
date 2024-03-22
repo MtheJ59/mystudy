@@ -1,5 +1,6 @@
 package bitcamp.myapp.config;
 
+import java.io.InputStream;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.ibatis.io.Resources;
@@ -9,14 +10,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 
-import java.io.InputStream;
-
 @ComponentScan(value = {
-        "bitcamp.myapp.dao",
-        "bitcamp.util"
+    "bitcamp.myapp.dao",
+    "bitcamp.util"
 })
 @PropertySource({
-        "classpath:config/jdbc.properties"
+    "classpath:config/jdbc.properties"
 })
 public class RootConfig {
 
@@ -31,7 +30,7 @@ public class RootConfig {
     String resource = "config/mybatis-config.xml";
     InputStream inputStream = Resources.getResourceAsStream(resource);
     SqlSessionFactory sqlSessionFactory =
-            new SqlSessionFactoryBuilder().build(inputStream);
+        new SqlSessionFactoryBuilder().build(inputStream);
     return sqlSessionFactory;
   }
 }
