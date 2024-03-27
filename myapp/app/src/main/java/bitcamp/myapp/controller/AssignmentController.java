@@ -1,6 +1,5 @@
 package bitcamp.myapp.controller;
 
-import bitcamp.myapp.dao.AssignmentDao;
 import bitcamp.myapp.service.AssignmentService;
 import bitcamp.myapp.vo.Assignment;
 import lombok.RequiredArgsConstructor;
@@ -39,7 +38,6 @@ public class AssignmentController {
   @GetMapping("view")
   public void view(int no, Model model) throws Exception {
     Assignment assignment = assignmentService.get(no);
-    log.debug(assignment.toString()); // 정보 상세보
     if (assignment == null) {
       throw new Exception("과제 번호가 유효하지 않습니다.");
     }

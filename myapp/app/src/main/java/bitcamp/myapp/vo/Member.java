@@ -1,12 +1,10 @@
 package bitcamp.myapp.vo;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
+import lombok.Data;
 
-@NoArgsConstructor
+
 @Data
 public class Member implements Serializable {
 

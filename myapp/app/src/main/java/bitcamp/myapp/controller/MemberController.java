@@ -1,15 +1,14 @@
 package bitcamp.myapp.controller;
 
-import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.service.MemberService;
 import bitcamp.myapp.vo.Member;
-
 import java.io.File;
 import java.util.UUID;
 import javax.servlet.ServletContext;
-
+import lombok.RequiredArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,18 +16,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/member")
-public class MemberController {
+public class MemberController implements InitializingBean {
 
   private static final Log log = LogFactory.getLog(MemberController.class);
   private final MemberService memberService;
+  private final ServletContext servletContext;
   private String uploadDir;
 
-  public MemberController(MemberService memberService, ServletContext sc) {
-    log.debug("MemberController() 호출됨!");
-    this.memberService = memberService;
-    this.uploadDir = sc.getRealPath("/upload");
+  @Override
+  public void afterPropertiesSet() throws Exception {
+    this.uploadDir = servletContext.getRealPath("/upload");
   }
 
   @GetMapping("form")
@@ -79,7 +79,6 @@ public class MemberController {
     }
 
     memberService.update(member);
-
     return "redirect:list";
   }
 
@@ -91,6 +90,7 @@ public class MemberController {
     }
 
     memberService.delete(no);
+
     String filename = member.getPhoto();
     if (filename != null) {
       new File(this.uploadDir + "/" + filename).delete();

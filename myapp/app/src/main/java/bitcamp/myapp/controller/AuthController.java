@@ -1,13 +1,10 @@
 package bitcamp.myapp.controller;
 
-import bitcamp.myapp.dao.MemberDao;
 import bitcamp.myapp.service.MemberService;
 import bitcamp.myapp.vo.Member;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -33,11 +30,11 @@ public class AuthController {
 
   @PostMapping("login")
   public String login(
-          String email,
-          String password,
-          String saveEmail,
-          HttpServletResponse response,
-          HttpSession session) throws Exception {
+      String email,
+      String password,
+      String saveEmail,
+      HttpServletResponse response,
+      HttpSession session) throws Exception {
 
     if (saveEmail != null) {
       Cookie cookie = new Cookie("email", email);
