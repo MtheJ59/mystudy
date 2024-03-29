@@ -5,7 +5,9 @@ import bitcamp.myapp.dao.BoardDao;
 import bitcamp.myapp.service.BoardService;
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
+
 import java.util.List;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,8 +32,8 @@ public class DefaultBoardService implements BoardService {
   }
 
   @Override
-  public List<Board> list(int category) {
-    return boardDao.findAll(category);
+  public List<Board> list(int category, int pageNo, int pageSize) {
+    return boardDao.findAll(category, pageSize * (pageNo - 1), pageSize);
   }
 
   @Override
@@ -72,5 +74,10 @@ public class DefaultBoardService implements BoardService {
   @Override
   public int deleteAttachedFile(int fileNo) {
     return attachedFileDao.delete(fileNo);
+  }
+
+  @Override
+  public int countAll(int category) {
+    return boardDao.countAll(category);
   }
 }
