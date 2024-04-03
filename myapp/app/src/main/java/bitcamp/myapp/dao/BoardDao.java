@@ -1,9 +1,7 @@
 package bitcamp.myapp.dao;
 
 import bitcamp.myapp.vo.Board;
-
 import java.util.List;
-
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -15,9 +13,9 @@ public interface BoardDao {
   int delete(int no);
 
   List<Board> findAll(
-          @Param("category") int category,
-          @Param("offset") int offset,
-          @Param("rowCount") int rowCount);
+      @Param("category") int category,
+      @Param("offset") int offset,
+      @Param("rowCount") int rowCount);
 
   Board findBy(int no);
 

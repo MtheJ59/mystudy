@@ -1,7 +1,6 @@
 package bitcamp.myapp.service;
 
 import bitcamp.myapp.vo.Assignment;
-
 import java.util.List;
 
 public interface AssignmentService {

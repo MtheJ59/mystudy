@@ -2,7 +2,6 @@ package bitcamp.myapp.service;
 
 import bitcamp.myapp.vo.AttachedFile;
 import bitcamp.myapp.vo.Board;
-
 import java.util.List;
 
 public interface BoardService {
