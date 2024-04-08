@@ -31,7 +31,9 @@
       created_date
     from
       members
-      limit #{rowCount} offset #{offset}
+    order by
+      name
+    limit #{rowCount} offset #{offset}
   </select>
 
   <select id="findBy" resultMap="MemberMap" parameterType="int">
@@ -75,5 +77,4 @@
   <select id="countAll" resultType="int">
     select count(*) from members;
   </select>
-
 </mapper>
