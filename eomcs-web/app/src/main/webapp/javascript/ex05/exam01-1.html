@@ -19,8 +19,18 @@
 
 // Document.prototype.getElementById("태그아이디")
 // => 리턴 값: HTMLElement 하위 생성자에 의해 초기화된 객체를 리턴
-var e1 = document.getElementById("header4"); // vanilla JS 방식
+var e1 = document.getElementById("header4"); // vanilla JS 방식 (Plain JavaScript)
 //var e1 = jQuery("#header4");
+
+function jQuery() {}
+
+var $ = jQuery;
+
+function a() {}
+var x = a;
+// x에 a를 넣는게 아니라 a()의 주소를 넣는거다. 함수도 객체다.
+// 즉, jQuery = $ 이고 단순히 그 뿐인 것이다.
+
 //var e1 = $("#header4");
 
 console.log(e1);
