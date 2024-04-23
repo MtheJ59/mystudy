@@ -18,7 +18,7 @@ app.use(express.urlencoded({extended: true}));
 app.get(                 // GET 요청이 들어 왔을 때 호출될 메서드 지정
   '/exam01-1',           // 요청 URL
   (req, res) => {        // 요청 핸들러: 요청이 들어 왔을 때 호출되는 메서드
-    res.set('Access-Control-Allow-Origin', '*');  // CORS 문제 해결
+    res.set('Access-Control-Allow-Origin', '*');  // CORS 문제 해결 크로스 오리진 리소스 쉐어링
     res.set('Content-Type', 'text/plain; charset=UTF-8');
     res.send('Hello!(강사)');
   } 
