@@ -27,7 +27,9 @@ console.log(list2);
 
 document.querySelector("#btn1").onclick = function() {
   var e = document.querySelector("li:first-child");
-  e.parentElement.removeChild(e); // 부모로 부터 찾은 객체를 삭제 e.으로 부터 부모를 찾아서 li의 첫번째 자식을 삭제한다.
+
+  //e.parentElement.removeChild(e);
+  e.parentNode.removeChild(e);
 
   console.log(list1); // HTMLCollection 은 현재 태그 상태를 반영한다.
   console.log(list2); // NodeList는 리턴 받은 값을 그대로 유지한다.

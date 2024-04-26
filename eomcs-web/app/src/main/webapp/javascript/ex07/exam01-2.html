@@ -13,7 +13,7 @@
 "use strict"
 
 // AJAX 요청의 제약
-// => HTML을 다운로드 받은 서버로만 AJAX로 HTTP 요청을 할 수 있다. (same origin parsh)
+// => HTML을 다운로드 받은 서버로만 AJAX로 HTTP 요청을 할 수 있다.
 // => 이유? 보안 때문이다.
 //    - 웹브라우저는 서버로부터 HTML을 다운로드 받으면 HTML에 들어있는 JavaScript를 자동으로 실행한다.
 //    - HTML페이지는 반드시 신뢰할 수 있는 것은 아니다.
@@ -35,7 +35,8 @@ var ta = document.querySelector("#ta");
 
 document.querySelector("#btn1").onclick = () => {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://www.zdnet.co.kr", false);
+    //xhr.open("GET", "http://www.zdnet.co.kr", false);
+    xhr.open("GET", "http://192.168.0.5:8888/javascript/ex07/test1", false);
     xhr.send();
     ta.value = xhr.responseText;
     
