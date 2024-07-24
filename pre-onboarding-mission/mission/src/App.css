@@ -1,8 +1,13 @@
+.line {
+  margin-top: 20px;
+  width: 60%;
+  border: 2px solid black;
+}
+
 .app {
   font-family: Arial, sans-serif;
   width: 300px;
-  margin: 0 auto;
-  padding: 20px;
+  padding: 12px 8px;
 }
 
 .search-container {
